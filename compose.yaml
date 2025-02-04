@@ -1,0 +1,24 @@
+
+services:
+
+  database:
+    image: 'mysql:latest'
+    volumes:
+      - database:/var/lib/mysql
+    env_file:
+      - .env
+    ports:
+      - '3306'
+
+  phpmyadmin:
+    depends_on:
+      - database
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8082:80
+    environment:
+      PMA_HOST: database
+
+volumes:
+  database:
