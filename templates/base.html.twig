@@ -17,17 +17,17 @@
     </head>
     <body>
         <div id="container">
-            {# {% block header %}
+            {% block header %}
                 {% include "/parts/header.html.twig" %}
-            {% endblock %} #}
+            {% endblock %}
             <main>
                 <div class="s-container">
                     {% block body %}{% endblock %}
                 </div>
             </main>
-            {# {% block footer %}
+            {% block footer %}
                 {% include "/parts/footer.html.twig" %}
-            {% endblock %} #}
+            {% endblock %}
         </div>
     </body>
 </html>
