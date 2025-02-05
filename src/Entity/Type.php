@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TypeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TypeRepository::class)]
@@ -38,6 +39,9 @@ class Type
      */
     #[ORM\OneToMany(targetEntity: Character::class, mappedBy: 'type')]
     private Collection $characters;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $debuffEffect = null;
 
     public function __construct()
     {
@@ -152,6 +156,18 @@ class Type
                 $character->setType(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDebuffEffect(): ?string
+    {
+        return $this->debuffEffect;
+    }
+
+    public function setDebuffEffect(?string $debuffEffect): static
+    {
+        $this->debuffEffect = $debuffEffect;
 
         return $this;
     }
