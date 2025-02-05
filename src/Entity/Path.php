@@ -46,9 +46,16 @@ class Path
     #[ORM\OneToMany(targetEntity: Character::class, mappedBy: 'path')]
     private Collection $characters;
 
+    /**
+     * @var Collection<int, LightCone>
+     */
+    #[ORM\OneToMany(targetEntity: LightCone::class, mappedBy: 'path')]
+    private Collection $lightCones;
+
     public function __construct()
     {
         $this->characters = new ArrayCollection();
+        $this->lightCones = new ArrayCollection();
     }
 
     public function __toString()
@@ -181,6 +188,36 @@ class Path
             // set the owning side to null (unless already changed)
             if ($character->getPath() === $this) {
                 $character->setPath(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LightCone>
+     */
+    public function getLightCones(): Collection
+    {
+        return $this->lightCones;
+    }
+
+    public function addLightCone(LightCone $lightCone): static
+    {
+        if (!$this->lightCones->contains($lightCone)) {
+            $this->lightCones->add($lightCone);
+            $lightCone->setPath($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLightCone(LightCone $lightCone): static
+    {
+        if ($this->lightCones->removeElement($lightCone)) {
+            // set the owning side to null (unless already changed)
+            if ($lightCone->getPath() === $this) {
+                $lightCone->setPath(null);
             }
         }
 

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\VersionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: VersionRepository::class)]
@@ -33,9 +34,22 @@ class Version
     #[ORM\OneToMany(targetEntity: Character::class, mappedBy: 'releaseVersion')]
     private Collection $characters;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $startDate = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $endDate = null;
+
+    /**
+     * @var Collection<int, LightCone>
+     */
+    #[ORM\OneToMany(targetEntity: LightCone::class, mappedBy: 'releaseVersion')]
+    private Collection $lightCones;
+
     public function __construct()
     {
         $this->characters = new ArrayCollection();
+        $this->lightCones = new ArrayCollection();
     }
 
     public function __toString()
@@ -120,6 +134,60 @@ class Version
             // set the owning side to null (unless already changed)
             if ($character->getReleaseVersion() === $this) {
                 $character->setReleaseVersion(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getStartDate(): ?\DateTimeInterface
+    {
+        return $this->startDate;
+    }
+
+    public function setStartDate(?\DateTimeInterface $startDate): static
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate(?\DateTimeInterface $endDate): static
+    {
+        $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LightCone>
+     */
+    public function getLightCones(): Collection
+    {
+        return $this->lightCones;
+    }
+
+    public function addLightCone(LightCone $lightCone): static
+    {
+        if (!$this->lightCones->contains($lightCone)) {
+            $this->lightCones->add($lightCone);
+            $lightCone->setReleaseVersion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLightCone(LightCone $lightCone): static
+    {
+        if ($this->lightCones->removeElement($lightCone)) {
+            // set the owning side to null (unless already changed)
+            if ($lightCone->getReleaseVersion() === $this) {
+                $lightCone->setReleaseVersion(null);
             }
         }
 
