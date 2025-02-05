@@ -131,6 +131,9 @@ class CharacterKit
     #[ORM\OneToMany(targetEntity: CharacterEidolon::class, mappedBy: 'characterKit')]
     private Collection $eidolons;
 
+    #[ORM\OneToOne(mappedBy: 'memomaster', cascade: ['persist', 'remove'])]
+    private ?Memosprite $memosprite = null;
+
     public function __construct()
     {
         $this->substats = new ArrayCollection();
@@ -613,6 +616,23 @@ class CharacterKit
                 $eidolon->setCharacterKit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMemosprite(): ?Memosprite
+    {
+        return $this->memosprite;
+    }
+
+    public function setMemosprite(Memosprite $memosprite): static
+    {
+        // set the owning side of the relation if necessary
+        if ($memosprite->getMemomaster() !== $this) {
+            $memosprite->setMemomaster($this);
+        }
+
+        $this->memosprite = $memosprite;
 
         return $this;
     }
