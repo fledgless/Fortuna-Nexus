@@ -74,6 +74,18 @@ class Character
     #[ORM\OneToMany(targetEntity: CharacterVoiceline::class, mappedBy: 'characterName')]
     private Collection $voicelines;
 
+    #[ORM\ManyToOne(inversedBy: 'characters')]
+    private ?EnemyDrops $enemyDrops = null;
+
+    #[ORM\ManyToOne(inversedBy: 'characters')]
+    private ?StagnantShadowDrop $stagnantShadowDrop = null;
+
+    #[ORM\ManyToOne(inversedBy: 'characters')]
+    private ?PathMaterials $pathMaterials = null;
+
+    #[ORM\ManyToOne(inversedBy: 'characters')]
+    private ?EchoOfWarDrop $echoOfWarDrop = null;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -324,6 +336,54 @@ class Character
                 $voiceline->setCharacterName(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEnemyDrops(): ?EnemyDrops
+    {
+        return $this->enemyDrops;
+    }
+
+    public function setEnemyDrops(?EnemyDrops $enemyDrops): static
+    {
+        $this->enemyDrops = $enemyDrops;
+
+        return $this;
+    }
+
+    public function getStagnantShadowDrop(): ?StagnantShadowDrop
+    {
+        return $this->stagnantShadowDrop;
+    }
+
+    public function setStagnantShadowDrop(?StagnantShadowDrop $stagnantShadowDrop): static
+    {
+        $this->stagnantShadowDrop = $stagnantShadowDrop;
+
+        return $this;
+    }
+
+    public function getPathMaterials(): ?PathMaterials
+    {
+        return $this->pathMaterials;
+    }
+
+    public function setPathMaterials(?PathMaterials $pathMaterials): static
+    {
+        $this->pathMaterials = $pathMaterials;
+
+        return $this;
+    }
+
+    public function getEchoOfWarDrop(): ?EchoOfWarDrop
+    {
+        return $this->echoOfWarDrop;
+    }
+
+    public function setEchoOfWarDrop(?EchoOfWarDrop $echoOfWarDrop): static
+    {
+        $this->echoOfWarDrop = $echoOfWarDrop;
 
         return $this;
     }
