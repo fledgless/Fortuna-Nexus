@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CharacterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -56,6 +58,32 @@ class Character
 
     #[ORM\OneToOne(mappedBy: 'characterName', cascade: ['persist', 'remove'])]
     private ?CharacterKit $characterKit = null;
+
+    /**
+     * @var Collection<int, CharacterMedia>
+     */
+    #[ORM\OneToMany(targetEntity: CharacterMedia::class, mappedBy: 'characterName')]
+    private Collection $media;
+
+    #[ORM\OneToOne(mappedBy: 'characterName', cascade: ['persist', 'remove'])]
+    private ?CharacterStories $stories = null;
+
+    /**
+     * @var Collection<int, CharacterVoiceline>
+     */
+    #[ORM\OneToMany(targetEntity: CharacterVoiceline::class, mappedBy: 'characterName')]
+    private Collection $voicelines;
+
+    public function __construct()
+    {
+        $this->media = new ArrayCollection();
+        $this->voicelines = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
@@ -219,6 +247,83 @@ class Character
         }
 
         $this->characterKit = $characterKit;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CharacterMedia>
+     */
+    public function getMedia(): Collection
+    {
+        return $this->media;
+    }
+
+    public function addMedium(CharacterMedia $medium): static
+    {
+        if (!$this->media->contains($medium)) {
+            $this->media->add($medium);
+            $medium->setCharacterName($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMedium(CharacterMedia $medium): static
+    {
+        if ($this->media->removeElement($medium)) {
+            // set the owning side to null (unless already changed)
+            if ($medium->getCharacterName() === $this) {
+                $medium->setCharacterName(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getStories(): ?CharacterStories
+    {
+        return $this->stories;
+    }
+
+    public function setStories(CharacterStories $stories): static
+    {
+        // set the owning side of the relation if necessary
+        if ($stories->getCharacterName() !== $this) {
+            $stories->setCharacterName($this);
+        }
+
+        $this->stories = $stories;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CharacterVoiceline>
+     */
+    public function getVoicelines(): Collection
+    {
+        return $this->voicelines;
+    }
+
+    public function addVoiceline(CharacterVoiceline $voiceline): static
+    {
+        if (!$this->voicelines->contains($voiceline)) {
+            $this->voicelines->add($voiceline);
+            $voiceline->setCharacterName($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVoiceline(CharacterVoiceline $voiceline): static
+    {
+        if ($this->voicelines->removeElement($voiceline)) {
+            // set the owning side to null (unless already changed)
+            if ($voiceline->getCharacterName() === $this) {
+                $voiceline->setCharacterName(null);
+            }
+        }
 
         return $this;
     }

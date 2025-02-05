@@ -35,6 +35,12 @@ class CharacterEidolon
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $filename = null;
 
+    public function __toString()
+    {
+        $name = $this->characterKit + " - Eidolon " + $this->number + " - " + $this->name;
+        return $name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

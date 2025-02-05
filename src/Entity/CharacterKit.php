@@ -138,6 +138,12 @@ class CharacterKit
         $this->eidolons = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        $name = $this->characterName + " - Kit";
+        return $name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

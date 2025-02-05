@@ -80,6 +80,12 @@ class CharacterSkill
     #[ORM\ManyToOne(inversedBy: 'skills')]
     private ?CharacterKit $characterKit = null;
 
+    public function __toString()
+    {
+        $name = $this->characterKit + " - Skill - " + $this->name;
+        return $name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
