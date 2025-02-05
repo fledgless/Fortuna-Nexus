@@ -54,6 +54,9 @@ class Character
     #[ORM\JoinColumn(nullable: false)]
     private ?Version $releaseVersion = null;
 
+    #[ORM\OneToOne(mappedBy: 'characterName', cascade: ['persist', 'remove'])]
+    private ?CharacterKit $characterKit = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -199,6 +202,23 @@ class Character
     public function setReleaseVersion(?Version $releaseVersion): static
     {
         $this->releaseVersion = $releaseVersion;
+
+        return $this;
+    }
+
+    public function getCharacterKit(): ?CharacterKit
+    {
+        return $this->characterKit;
+    }
+
+    public function setCharacterKit(CharacterKit $characterKit): static
+    {
+        // set the owning side of the relation if necessary
+        if ($characterKit->getCharacterName() !== $this) {
+            $characterKit->setCharacterName($this);
+        }
+
+        $this->characterKit = $characterKit;
 
         return $this;
     }
