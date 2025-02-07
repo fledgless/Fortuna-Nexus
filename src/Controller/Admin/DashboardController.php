@@ -2,7 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\EchoOfWarDrop;
+use App\Entity\EnemyDrops;
 use App\Entity\Path;
+use App\Entity\PathMaterials;
+use App\Entity\StagnantShadowDrop;
 use App\Entity\Stat;
 use App\Entity\Type;
 use App\Entity\Version;
@@ -48,6 +52,24 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::subMenu('Stats','fas fa-chart-column')->setSubItems([
                 MenuItem::linkToCrud('Stat list', 'fas fa-list-check', Stat::class),
                 MenuItem::linkToCrud('New stat', 'fas fa-heart-circle-plus', Stat::class)->setAction(Crud::PAGE_NEW),
+            ]);
+
+        yield MenuItem::section('Ascension & trace materials');
+            yield MenuItem::subMenu('Enemy drops','fas fa-screwdriver-wrench')->setSubItems([
+                MenuItem::linkToCrud('Drop list', 'fas fa-toolbox', EnemyDrops::class),
+                MenuItem::linkToCrud('New drops', 'fas fa-wrench', EnemyDrops::class)->setAction(Crud::PAGE_NEW),
+            ]);
+            yield MenuItem::subMenu('Stagnant Shadow drop','fas fa-screwdriver-wrench')->setSubItems([
+                MenuItem::linkToCrud('Drop list', 'fas fa-toolbox', StagnantShadowDrop::class),
+                MenuItem::linkToCrud('New drop', 'fas fa-wrench', StagnantShadowDrop::class)->setAction(Crud::PAGE_NEW),
+            ]);
+            yield MenuItem::subMenu('Path materials','fas fa-screwdriver-wrench')->setSubItems([
+                MenuItem::linkToCrud('Material list', 'fas fa-toolbox', PathMaterials::class),
+                MenuItem::linkToCrud('New materials', 'fas fa-wrench', PathMaterials::class)->setAction(Crud::PAGE_NEW),
+            ]);
+            yield MenuItem::subMenu('Echo of War materials','fas fa-screwdriver-wrench')->setSubItems([
+                MenuItem::linkToCrud('Drop list', 'fas fa-toolbox', EchoOfWarDrop::class),
+                MenuItem::linkToCrud('New drop', 'fas fa-wrench', EchoOfWarDrop::class)->setAction(Crud::PAGE_NEW),
             ]);
     }
 }
