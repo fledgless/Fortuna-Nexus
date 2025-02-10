@@ -44,13 +44,13 @@ class Character
     private ?string $miniatureFilename = null;
 
     #[ORM\Column]
-    private ?bool $released = null;
+    private ?bool $released = false;
 
     #[ORM\Column]
-    private ?bool $announced = null;
+    private ?bool $announced = false;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $releaseDare = null;
+    private ?\DateTimeInterface $releaseDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'characters')]
     #[ORM\JoinColumn(nullable: false)]
@@ -222,14 +222,14 @@ class Character
         return $this;
     }
 
-    public function getReleaseDare(): ?\DateTimeInterface
+    public function getReleaseDate(): ?\DateTimeInterface
     {
-        return $this->releaseDare;
+        return $this->releaseDate;
     }
 
-    public function setReleaseDare(?\DateTimeInterface $releaseDare): static
+    public function setReleaseDate(?\DateTimeInterface $releaseDate): static
     {
-        $this->releaseDare = $releaseDare;
+        $this->releaseDate = $releaseDate;
 
         return $this;
     }

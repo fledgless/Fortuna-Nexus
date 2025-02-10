@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Character;
 use App\Entity\EchoOfWarDrop;
 use App\Entity\EnemyDrops;
 use App\Entity\Path;
@@ -35,6 +36,10 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::section('Characters');
+            yield MenuItem::subMenu('Characters','fas fa-id-card')->setSubItems([
+                MenuItem::linkToCrud('Character list', 'fas fa-people-group', Character::class)->setDefaultSort(['releaseVersion' => 'DESC']),
+                MenuItem::linkToCrud('New character', 'fas fa-person-circle-plus', Character::class)->setAction(Crud::PAGE_NEW),
+            ]);
 
         yield MenuItem::section('Associations');
             yield MenuItem::subMenu('Versions', 'fas fa-square-root-variable')->setSubItems([
