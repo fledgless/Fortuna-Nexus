@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TypeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TypeRepository::class)]
@@ -39,9 +40,19 @@ class Type
     #[ORM\OneToMany(targetEntity: Character::class, mappedBy: 'type')]
     private Collection $characters;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $debuffEffect = null;
+
+    /**
+     * @var Collection<int, StagnantShadowDrop>
+     */
+    #[ORM\OneToMany(targetEntity: StagnantShadowDrop::class, mappedBy: 'type')]
+    private Collection $stagnantShadowDrops;
+
     public function __construct()
     {
         $this->characters = new ArrayCollection();
+        $this->stagnantShadowDrops = new ArrayCollection();
     }
 
     public function __toString()
@@ -150,6 +161,48 @@ class Type
             // set the owning side to null (unless already changed)
             if ($character->getType() === $this) {
                 $character->setType(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getDebuffEffect(): ?string
+    {
+        return $this->debuffEffect;
+    }
+
+    public function setDebuffEffect(?string $debuffEffect): static
+    {
+        $this->debuffEffect = $debuffEffect;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, StagnantShadowDrop>
+     */
+    public function getStagnantShadowDrops(): Collection
+    {
+        return $this->stagnantShadowDrops;
+    }
+
+    public function addStagnantShadowDrop(StagnantShadowDrop $stagnantShadowDrop): static
+    {
+        if (!$this->stagnantShadowDrops->contains($stagnantShadowDrop)) {
+            $this->stagnantShadowDrops->add($stagnantShadowDrop);
+            $stagnantShadowDrop->setType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStagnantShadowDrop(StagnantShadowDrop $stagnantShadowDrop): static
+    {
+        if ($this->stagnantShadowDrops->removeElement($stagnantShadowDrop)) {
+            // set the owning side to null (unless already changed)
+            if ($stagnantShadowDrop->getType() === $this) {
+                $stagnantShadowDrop->setType(null);
             }
         }
 
