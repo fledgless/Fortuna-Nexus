@@ -57,10 +57,10 @@ class LightCone
     private ?string $skillName = null;
 
     #[ORM\Column]
-    private ?bool $announced = null;
+    private ?bool $announced = false;
 
     #[ORM\Column]
-    private ?bool $released = null;
+    private ?bool $released = false;
 
     #[ORM\Column(nullable: true)]
     private ?array $obtainable = null;
@@ -77,6 +77,17 @@ class LightCone
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $fullArtFilename = null;
+
+    #[ORM\ManyToOne(inversedBy: 'lightCones')]
+    private ?EnemyDrops $enemyDrops = null;
+
+    #[ORM\ManyToOne(inversedBy: 'lightCones')]
+    private ?PathMaterials $pathMaterials = null;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
@@ -331,6 +342,30 @@ class LightCone
     public function setFullArtFilename(?string $fullArtFilename): static
     {
         $this->fullArtFilename = $fullArtFilename;
+
+        return $this;
+    }
+
+    public function getEnemyDrops(): ?EnemyDrops
+    {
+        return $this->enemyDrops;
+    }
+
+    public function setEnemyDrops(?EnemyDrops $enemyDrops): static
+    {
+        $this->enemyDrops = $enemyDrops;
+
+        return $this;
+    }
+
+    public function getPathMaterials(): ?PathMaterials
+    {
+        return $this->pathMaterials;
+    }
+
+    public function setPathMaterials(?PathMaterials $pathMaterials): static
+    {
+        $this->pathMaterials = $pathMaterials;
 
         return $this;
     }
