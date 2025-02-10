@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Character;
+use App\Entity\CharacterEidolon;
+use App\Entity\CharacterSkill;
 use App\Entity\EchoOfWarDrop;
 use App\Entity\EnemyDrops;
 use App\Entity\Path;
@@ -39,6 +41,14 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::subMenu('Characters','fas fa-id-card')->setSubItems([
                 MenuItem::linkToCrud('Character list', 'fas fa-people-group', Character::class)->setDefaultSort(['releaseVersion' => 'DESC']),
                 MenuItem::linkToCrud('New character', 'fas fa-person-circle-plus', Character::class)->setAction(Crud::PAGE_NEW),
+            ]);
+            yield MenuItem::subMenu('Skills', 'fas fa-person-dots-from-line')->setSubItems([
+                MenuItem::linkToCrud('Skill list', 'fas fa-arrows-down-to-people', CharacterSkill::class)->setDefaultSort(['characterKit' => 'ASC']),
+                MenuItem::linkToCrud('New skill', 'fas fa-person-circle-plus', CharacterSkill::class)->setAction(Crud::PAGE_NEW),
+            ]);
+            yield MenuItem::subMenu('Eidolons', 'fas fa-star')->setSubItems([
+                MenuItem::linkToCrud('Eidolon list', 'fas fa-ranking-star', CharacterEidolon::class)->setDefaultSort(['characterKit' => 'ASC']),
+                MenuItem::linkToCrud('New eidolon', 'fas fa-cart-plus', CharacterEidolon::class)->setAction(Crud::PAGE_NEW),
             ]);
 
         yield MenuItem::section('Associations');

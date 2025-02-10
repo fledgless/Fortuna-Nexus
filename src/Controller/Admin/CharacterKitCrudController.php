@@ -6,6 +6,7 @@ use App\Entity\CharacterKit;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -76,10 +77,10 @@ class CharacterKitCrudController extends AbstractCrudController
             yield ImageField::new('techniqueFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
         yield FormField::addTab('Skills');
-            yield AssociationField::new('skills');
+            yield CollectionField::new('skills');
 
         yield FormField::addTab('Eidolons');
-            yield AssociationField::new('eidolons');
+            yield CollectionField::new('eidolons');
 
         yield FormField::addTab('Memosprite');
             yield AssociationField::new('memosprite');
