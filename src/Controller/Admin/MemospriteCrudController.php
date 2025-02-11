@@ -26,8 +26,6 @@ class MemospriteCrudController extends AbstractCrudController
         yield FormField::addTab('Memosprite');
             yield TextField::new('name');
             yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
-
-        yield FormField::addTab('Memo-skill');
             yield CollectionField::new('skills');
     }
 }

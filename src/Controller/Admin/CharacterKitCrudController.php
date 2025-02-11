@@ -83,6 +83,6 @@ class CharacterKitCrudController extends AbstractCrudController
             yield CollectionField::new('eidolons');
 
         yield FormField::addTab('Memosprite');
-            yield AssociationField::new('memosprite');
+            yield AssociationField::new('memosprite')->renderAsEmbeddedForm();
     }
 }

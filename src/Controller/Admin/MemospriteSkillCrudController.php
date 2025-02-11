@@ -55,10 +55,9 @@ class MemospriteSkillCrudController extends AbstractCrudController
                     "Support" => "Support"
                 ])->setColumns(6);
             yield FormField::addRow();
-                yield IntegerField::new('energyGain')->setColumns(3)->hideOnIndex();
-                yield IntegerField::new('energyCost')->setColumns(3)->hideOnIndex();
-                yield IntegerField::new('breakMainTarget')->setColumns(3)->hideOnIndex();
-                yield IntegerField::new('breakAdjacentTargets')->setColumns(3)->hideOnIndex();
+                yield IntegerField::new('energyGain')->setColumns(4)->hideOnIndex();
+                yield IntegerField::new('breakMainTarget')->setColumns(4)->hideOnIndex();
+                yield IntegerField::new('breakAdjacentTargets')->setColumns(4)->hideOnIndex();
             yield FormField::addRow();
                 yield TextEditorField::new('descUnique', "Description (if skill doesn't level up)")->setColumns(7)->hideOnIndex();
                 yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]')->setColumns(5);

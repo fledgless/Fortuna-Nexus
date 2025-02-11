@@ -51,6 +51,7 @@ class CharacterCrudController extends AbstractCrudController
             yield ImageField::new('iconFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
             yield ImageField::new('splashFilename', 'Splash art')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
             yield ImageField::new('miniatureFilename', 'Smaller icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+            yield CollectionField::new('media')->useEntryCrudForm();
 
         yield FormField::addTab('Materials');
             yield AssociationField::new('enemyDrops')->hideOnIndex();
