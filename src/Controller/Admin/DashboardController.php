@@ -8,6 +8,7 @@ use App\Entity\CharacterSkill;
 use App\Entity\CharacterVoiceline;
 use App\Entity\EchoOfWarDrop;
 use App\Entity\EnemyDrops;
+use App\Entity\MemospriteSkill;
 use App\Entity\Path;
 use App\Entity\PathMaterials;
 use App\Entity\StagnantShadowDrop;
@@ -50,6 +51,10 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::subMenu('Eidolons', 'fas fa-star')->setSubItems([
                 MenuItem::linkToCrud('Eidolon list', 'fas fa-ranking-star', CharacterEidolon::class)->setDefaultSort(['characterKit' => 'ASC']),
                 MenuItem::linkToCrud('New eidolon', 'fas fa-cart-plus', CharacterEidolon::class)->setAction(Crud::PAGE_NEW),
+            ]);
+            yield MenuItem::subMenu('Memosprite skill','fas fa-shield-cat')->setSubItems([
+                MenuItem::linkToCrud('Memo-skill list', 'fas fa-folder-open', MemospriteSkill::class),
+                MenuItem::linkToCrud('New memo-skill', 'fas fa-file-circle-plus', MemospriteSkill::class)->setAction(Crud::PAGE_NEW),
             ]);
 
         yield MenuItem::section('Associations');
