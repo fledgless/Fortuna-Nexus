@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CharacterEidolonRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -34,6 +36,24 @@ class CharacterEidolon
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $filename = null;
+
+    /**
+     * @var Collection<int, CharacterSkill>
+     */
+    #[ORM\OneToMany(targetEntity: CharacterSkill::class, mappedBy: 'characterEidolon')]
+    private Collection $enhancedSkills;
+
+    /**
+     * @var Collection<int, MemospriteSkill>
+     */
+    #[ORM\OneToMany(targetEntity: MemospriteSkill::class, mappedBy: 'characterEidolon')]
+    private Collection $enhancedMemoSkills;
+
+    public function __construct()
+    {
+        $this->enhancedSkills = new ArrayCollection();
+        $this->enhancedMemoSkills = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -126,6 +146,66 @@ class CharacterEidolon
     public function setFilename(?string $filename): static
     {
         $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CharacterSkill>
+     */
+    public function getEnhancedSkills(): Collection
+    {
+        return $this->enhancedSkills;
+    }
+
+    public function addEnhancedSkill(CharacterSkill $enhancedSkill): static
+    {
+        if (!$this->enhancedSkills->contains($enhancedSkill)) {
+            $this->enhancedSkills->add($enhancedSkill);
+            $enhancedSkill->setCharacterEidolon($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnhancedSkill(CharacterSkill $enhancedSkill): static
+    {
+        if ($this->enhancedSkills->removeElement($enhancedSkill)) {
+            // set the owning side to null (unless already changed)
+            if ($enhancedSkill->getCharacterEidolon() === $this) {
+                $enhancedSkill->setCharacterEidolon(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, MemospriteSkill>
+     */
+    public function getEnhancedMemoSkills(): Collection
+    {
+        return $this->enhancedMemoSkills;
+    }
+
+    public function addEnhancedMemoSkill(MemospriteSkill $enhancedMemoSkill): static
+    {
+        if (!$this->enhancedMemoSkills->contains($enhancedMemoSkill)) {
+            $this->enhancedMemoSkills->add($enhancedMemoSkill);
+            $enhancedMemoSkill->setCharacterEidolon($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnhancedMemoSkill(MemospriteSkill $enhancedMemoSkill): static
+    {
+        if ($this->enhancedMemoSkills->removeElement($enhancedMemoSkill)) {
+            // set the owning side to null (unless already changed)
+            if ($enhancedMemoSkill->getCharacterEidolon() === $this) {
+                $enhancedMemoSkill->setCharacterEidolon(null);
+            }
+        }
 
         return $this;
     }
