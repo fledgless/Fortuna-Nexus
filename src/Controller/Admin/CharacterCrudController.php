@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -59,5 +60,11 @@ class CharacterCrudController extends AbstractCrudController
 
         yield FormField::addTab('Kit');
             yield AssociationField::new('characterKit')->hideOnIndex()->renderAsEmbeddedForm();
+
+        yield FormField::addTab('Voicelines');
+            yield CollectionField::new('voicelines')->hideOnIndex()->useEntryCrudForm(CharacterVoicelineCrudController::class);
+        
+        yield FormField::addTab('Character stories');
+            yield AssociationField::new('stories')->hideOnIndex()->renderAsEmbeddedForm();
     }
 }

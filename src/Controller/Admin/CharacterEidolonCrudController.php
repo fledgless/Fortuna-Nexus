@@ -37,13 +37,13 @@ class CharacterEidolonCrudController extends AbstractCrudController
             yield ChoiceField::new('number', 'Eidolon')->setChoices([
                 "E1" => 1, "E2" => 2, "E3" => 3, "E4" => 4, "E5" => 5, "E6" => 6,
             ]);
-            yield TextEditorField::new('description');
+            yield TextEditorField::new('description')->hideOnIndex();
 
         yield FormField::addColumn();
             yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
-            yield ChoiceField::new('pullWorth')->setChoices([
+            yield ChoiceField::new('pullWorth')->hideOnIndex()->setChoices([
                 "0-star" => "Useless", "1-star" => "Low value", "2-star" => "Not recommended", "3-star" => "Good", "4-star" => "High value", "5-star" => "Must pull",
             ]);
-            yield TextEditorField::new('recommendation');
+            yield TextEditorField::new('recommendation')->hideOnIndex();
     }
 }

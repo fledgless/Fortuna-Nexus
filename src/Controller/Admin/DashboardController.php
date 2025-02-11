@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Character;
 use App\Entity\CharacterEidolon;
 use App\Entity\CharacterSkill;
+use App\Entity\CharacterVoiceline;
 use App\Entity\EchoOfWarDrop;
 use App\Entity\EnemyDrops;
 use App\Entity\Path;

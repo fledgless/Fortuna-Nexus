@@ -58,31 +58,31 @@ class CharacterSkillCrudController extends AbstractCrudController
                     "Support" => "Support"
                 ])->setColumns(6);
             yield FormField::addRow();
-                yield IntegerField::new('energyGain')->setColumns(3);
-                yield IntegerField::new('energyCost')->setColumns(3);
-                yield IntegerField::new('breakMainTarget')->setColumns(3);
-                yield IntegerField::new('breakAdjacentTargets')->setColumns(3);
+                yield IntegerField::new('energyGain')->setColumns(3)->hideOnIndex();
+                yield IntegerField::new('energyCost')->setColumns(3)->hideOnIndex();
+                yield IntegerField::new('breakMainTarget')->setColumns(3)->hideOnIndex();
+                yield IntegerField::new('breakAdjacentTargets')->setColumns(3)->hideOnIndex();
             yield FormField::addRow();
-                yield TextEditorField::new('descLevelOne', "Description (lvl 1)")->setColumns(7);
+                yield TextEditorField::new('descLevelOne', "Description (lvl 1)")->setColumns(7)->hideOnIndex();
                 yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]')->setColumns(5);
         
         yield FormField::addTab('Basic ATK');
             yield FormField::addColumn();
-                yield TextEditorField::new('descLevelTwo', "Description (lvl 2)")->hideOnDetail();
-                yield TextEditorField::new('descLevelThree', "Description (lvl 3)")->hideOnDetail();
-                yield TextEditorField::new('descLevelFour', "Description (lvl 4)")->hideOnDetail();
+                yield TextEditorField::new('descLevelTwo', "Description (lvl 2)")->hideOnIndex();
+                yield TextEditorField::new('descLevelThree', "Description (lvl 3)")->hideOnIndex();
+                yield TextEditorField::new('descLevelFour', "Description (lvl 4)")->hideOnIndex();
             yield FormField::addColumn();
-                yield TextEditorField::new('descLevelFive', "Description (lvl 5)")->hideOnDetail();
-                yield TextEditorField::new('descLevelSix', "Description (lvl 6)")->hideOnDetail();
-                yield TextEditorField::new('descLevelSeven', "Description (lvl 7)")->hideOnDetail();
+                yield TextEditorField::new('descLevelFive', "Description (lvl 5)")->hideOnIndex();
+                yield TextEditorField::new('descLevelSix', "Description (lvl 6)")->hideOnIndex();
+                yield TextEditorField::new('descLevelSeven', "Description (lvl 7)")->hideOnIndex();
 
         yield FormField::addTab('Others');
             yield FormField::addColumn();
-                yield TextEditorField::new('descLevelEight', "Description (lvl 8)")->hideOnDetail();
-                yield TextEditorField::new('descLevelNine', "Description (lvl 9)")->hideOnDetail();
-                yield TextEditorField::new('descLevelTen', "Description (lvl 10)")->hideOnDetail();
+                yield TextEditorField::new('descLevelEight', "Description (lvl 8)")->hideOnIndex();
+                yield TextEditorField::new('descLevelNine', "Description (lvl 9)")->hideOnIndex();
+                yield TextEditorField::new('descLevelTen', "Description (lvl 10)")->hideOnIndex();
             yield FormField::addColumn();
-                yield TextEditorField::new('descLevelEleven', "Description (lvl 11)")->hideOnDetail();
-                yield TextEditorField::new('descLevelTwelve', "Description (lvl 12)")->hideOnDetail();
+                yield TextEditorField::new('descLevelEleven', "Description (lvl 11)")->hideOnIndex();
+                yield TextEditorField::new('descLevelTwelve', "Description (lvl 12)")->hideOnIndex();
     }
 }
