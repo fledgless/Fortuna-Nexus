@@ -31,6 +31,12 @@ class CharacterMedia
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $postLink = null;
 
+    public function __toString()
+    {
+        $name = $this->characterName . " - Media - " . $this->name;
+        return $name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

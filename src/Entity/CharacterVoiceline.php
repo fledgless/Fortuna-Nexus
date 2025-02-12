@@ -29,7 +29,7 @@ class CharacterVoiceline
 
     public function __toString()
     {
-        $name = $this->characterName + " - Voiceline - " + $this->name;
+        $name = $this->characterName . " - Voiceline - " . $this->name;
         return $name;
     }
 

@@ -36,7 +36,7 @@ class MemospriteSkillCrudController extends AbstractCrudController
             yield FormField::addRow();
                 yield TextField::new('name')->setColumns(5);
                 yield AssociationField::new('memosprite')->setColumns(5);
-                yield BooleanField::new('levelUp', 'Unique desc?')->setColumns(2);
+                yield BooleanField::new('levelUp', 'Skill levels up?')->setColumns(2);
             yield FormField::addRow();
                 yield ChoiceField::new('type')->setChoices([
                     "Skill" => "Skill",
@@ -58,9 +58,11 @@ class MemospriteSkillCrudController extends AbstractCrudController
                 yield IntegerField::new('energyGain')->setColumns(4)->hideOnIndex();
                 yield IntegerField::new('breakMainTarget')->setColumns(4)->hideOnIndex();
                 yield IntegerField::new('breakAdjacentTargets')->setColumns(4)->hideOnIndex();
-            yield FormField::addRow();
-                yield TextEditorField::new('descUnique', "Description (if skill doesn't level up)")->setColumns(7)->hideOnIndex();
-                yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]')->setColumns(5);
+            yield FormField::addColumn();
+                yield TextEditorField::new('descUnique', "Description (if skill doesn't level up)")->hideOnIndex();
+            yield FormField::addColumn();
+                yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+                yield AssociationField::new('characterEidolon');
         
         yield FormField::addTab('Level-up');
             yield FormField::addColumn();

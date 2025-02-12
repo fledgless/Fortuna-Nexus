@@ -240,3 +240,95 @@ header nav .main-nav li a img {
   color: #282828;
   transition: 0.4s;
 }
+
+
+/* character and lc list */
+
+.character-list, .lc-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.character-list .item-character, .lc-list .item-lc {
+  height: 190px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  transition: 0.4s;
+  margin: 2px;
+  overflow: hidden;
+}
+
+.lc-list .item-lc {
+  height: 175px;
+}
+
+.character-list .item-character a, .lc-list .item-lc a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-list .item-character .character-path-type, .lc-list .item-lc .lc-path-div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin-left: 100px;
+  position: absolute;
+  margin-top: 5px;
+}
+
+.character-type, .character-path, .lc-path, .bossmat-type img, .tracemat-path img {
+  height: 20px;
+  margin: 1px;
+  padding: 5px;
+  backdrop-filter: blur(2px);
+  border-radius: 50%;
+  background-color: #0000005e;
+}
+
+.character-name, .lc-name {
+  max-width: 105px;
+  position: absolute;
+  padding: 5px 10px;
+  backdrop-filter: blur(1px);
+  margin-top: 140px;
+  border-radius: 30px;
+  text-shadow: -2px 2px 3px #000000;
+}
+
+.lc-name {
+  margin-top: 130px;
+}
+
+.character-name p, .lc-name p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+}
+
+.character-list .item-character a .character-icon, .lc-list .item-lc a .lc-icon {
+  width: 140px;
+}
+
+.character-list .item-character:hover a .character-icon, .lc-list .item-lc:hover a .lc-icon {
+  width: 170px;
+  transition: 0.4s;
+}
+
+.upcoming, .new {
+  position: absolute;
+  background-color: #0000005e;
+  padding: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: DinProBold;
+  margin-top: 5px;
+  margin-right: 55px;
+  text-align: left;
+  text-shadow: 1px 1px 0px #000000;
+  backdrop-filter: blur(2px);
+}

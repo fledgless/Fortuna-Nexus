@@ -57,7 +57,7 @@ class CharacterEidolon
 
     public function __toString()
     {
-        $name = $this->characterKit + " - Eidolon " + $this->number + " - " + $this->name;
+        $name = $this->characterKit . " - Eidolon " . strval($this->number) . " - " . $this->name;
         return $name;
     }
 

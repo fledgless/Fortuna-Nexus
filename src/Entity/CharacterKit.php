@@ -143,7 +143,7 @@ class CharacterKit
 
     public function __toString()
     {
-        $name = $this->characterName + " - Kit";
+        $name = $this->characterName . " - Kit";
         return $name;
     }
 

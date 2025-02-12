@@ -42,10 +42,10 @@ class CharacterCrudController extends AbstractCrudController
 
             yield FormField::addColumn();
                 yield SlugField::new('slug')->setTargetFieldName('name')->hideOnIndex();
+                yield AssociationField::new('releaseVersion');
+                yield DateField::new('releaseDate');
                 yield BooleanField::new('announced', 'Announced?');
                 yield BooleanField::new('released', 'Released?');
-                yield AssociationField::new('releaseVersion');
-                // yield DateField::new('releaseDate');
 
         yield FormField::addTab('Media'); 
             yield ImageField::new('iconFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
