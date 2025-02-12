@@ -143,6 +143,12 @@ header, footer, h1, h2, h3, li, li a, strong, button, .lc-base-stat-value {
   font-family: DinProBold;
 }
 
+.s-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 main, header .hamburger {
   background-color: #282828;
 }
@@ -331,4 +337,62 @@ header nav .main-nav li a img {
   text-align: left;
   text-shadow: 1px 1px 0px #000000;
   backdrop-filter: blur(2px);
+}
+
+
+.list .five-star:hover {
+  background: rgba(201,163,106,1);
+  font-family: DinProBold;
+  transition: 0.4s;
+}
+
+.list .four-star:hover,
+.four-star .superimposition-toggle:hover,
+.four-star .character-nav-link:hover,
+.ascmat:hover .four-star, .tracemat:hover .four-star,
+.bossmat:hover, .echomat:hover {
+  background: #623b5a;
+  font-family: DinProBold;
+  transition: 0.4s;
+}
+
+.list .three-star:hover,
+.three-star .superimposition-toggle:hover,
+.ascmat:hover .three-star, .tracemat:hover .three-star {
+  background: #235789;
+  font-family: DinProBold;
+  transition: 0.4s;
+}
+
+.ascmat:hover .two-star, .tracemat:hover .two-star {
+  background: #3f6b4e;
+  font-family: DinProBold;
+  transition: 0.4s;
+}
+
+.list .five-star, .five-star h2, .five-star .active {
+  background: rgb(201,106,106);
+  background: linear-gradient(180deg, rgba(201,106,106,1) 0%, rgba(201,163,106,1) 50%);
+}
+
+.list .four-star, .four-star h2, .four-star .active,
+.ascmat .four-star, .tracemat .four-star,
+.bossmat, .echomat {
+  background: rgb(60,59,98);
+  background: linear-gradient(180deg, rgba(60,59,98,1) 0%, rgba(98,59,90,1) 50%);
+}
+
+.list .three-star, .three-star h2, .three-star .active,
+.ascmat .three-star, .tracemat .three-star {
+  background: rgb(52,35,137);
+  background: linear-gradient(180deg, rgba(52,35,137,1) 0%, rgba(35,87,137,1) 20%, rgba(36,104,170,1) 70%);
+}
+
+.ascmat .two-star, .tracemat .two-star {
+  background: rgb(80,107,63);
+  background: linear-gradient(180deg, rgba(80,107,63,1) 0%, rgba(63,107,78,1) 20%, rgba(54,139,83,1) 70%);
+}
+
+.main-nav li a:hover {
+  background: #282828;
 }

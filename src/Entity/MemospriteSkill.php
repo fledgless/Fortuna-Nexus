@@ -71,7 +71,7 @@ class MemospriteSkill
 
     public function __toString()
     {
-        $name = $this->memosprite . $this->type . $this->name;
+        $name = $this->memosprite . " - " . $this->type . " - " . $this->name;
         return $name;
     }
 

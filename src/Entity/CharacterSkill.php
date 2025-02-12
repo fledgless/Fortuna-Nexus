@@ -85,7 +85,7 @@ class CharacterSkill
 
     public function __toString()
     {
-        $name = $this->characterKit . $this->type . $this->name;
+        $name = $this->characterKit . " - " . $this->type . " - " . $this->name;
         return $name;
     }
 

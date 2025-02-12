@@ -71,11 +71,6 @@ class CharacterKitCrudController extends AbstractCrudController
             yield TextareaField::new('mainTraceThreeDesc', 'Description');
             yield ImageField::new('mainTraceThreeFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
-        yield FormField::addTab('Technique');
-            yield TextField::new('techniqueName', 'Name');
-            yield TextareaField::new('techniqueDesc', 'Description');
-            yield ImageField::new('techniqueFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
-
         yield FormField::addTab('Skills');
             yield CollectionField::new('skills');
 

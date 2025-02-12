@@ -44,6 +44,7 @@ class CharacterSkillCrudController extends AbstractCrudController
                     "Skill" => "Skill",
                     "Ultimate" => "Ultimate",
                     "Talent" => "Talent",
+                    "Technique" => "Technique",
                 ])->setColumns(6);
                 yield ChoiceField::new('tag')->setChoices([
                     "AoE" => "AoE",
@@ -66,7 +67,7 @@ class CharacterSkillCrudController extends AbstractCrudController
                 yield TextEditorField::new('descLevelOne', "Description (lvl 1)")->hideOnIndex();
             yield FormField::addColumn();
                 yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
-                yield AssociationField::new('characterEidolon');
+                yield AssociationField::new('characterEidolon')->hideOnIndex();
         
         yield FormField::addTab('Basic ATK');
             yield FormField::addColumn();
