@@ -72,10 +72,10 @@ class CharacterKitCrudController extends AbstractCrudController
             yield ImageField::new('mainTraceThreeFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
         yield FormField::addTab('Skills');
-            yield CollectionField::new('skills');
+            yield AssociationField::new('skills');
 
         yield FormField::addTab('Eidolons');
-            yield CollectionField::new('eidolons');
+            yield AssociationField::new('eidolons');
 
         yield FormField::addTab('Memosprite');
             yield AssociationField::new('memosprite')->renderAsEmbeddedForm();

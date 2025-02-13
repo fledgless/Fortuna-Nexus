@@ -1,0 +1,60 @@
+<h3>Exploration</3>
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "First Meeting") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Greeting") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Parting") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "About Self") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Chat") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Hobbies") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Annoyances") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Something to Share") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Knowledge") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "About others") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Eidolon Activation") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Character Ascension") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Max Level Reached") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Trace Activation") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}
+
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == 'Added to Team With') %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}

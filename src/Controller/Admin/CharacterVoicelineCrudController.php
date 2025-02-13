@@ -38,27 +38,7 @@ class CharacterVoicelineCrudController extends AbstractCrudController
                 'Trace Activation' => 'Trace Activation',
                 'Added to Team With' => 'Added to Team With',
 
-                'Battle Begins' => 'Battle Begins',
-                'Turn Begins' => 'Turn Begins',
-                'Turn Idling' => 'Turn Idling',
-                'Basic ATK' => 'Basic ATK',
-                'Enhanced Basic ATK' => 'Enhanced Basic ATK',
-                'Skill' => 'Skill',
-                'Hit by Light Attack' => 'Hit by Light Attack',
-                'Hit by Heavy Attack' => 'Hit by Heavy Attack',
-                'Ultimate: Activate' => 'Ultimate: Activate',
-                'Ultimate: Unleash' => 'Ultimate: Unleash',
-                'Talent' => 'Talent',
-                'Downed' => 'Downed',
-                'Return to Battle' => 'Return to Battle',
-                'Health Recovery' => 'Health Recovery',
-                'Technique' => 'Technique',
-                'Battle Won' => 'Battle Won',
-                'Treasure Opening' => 'Treasure Opening',
-                'Precious Treasure Opening' => 'Precious Treasure Opening',
-                'Successful Puzzle-Solving' => 'Successful Puzzle-Solving',
-                'Enemy Target Found' => 'Enemy Target Found',
-                'Returning to Town' => 'Returning to Town',
+                'Combat' => 'Combat',
         ]);
     }
 }

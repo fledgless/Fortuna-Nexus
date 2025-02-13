@@ -71,7 +71,7 @@ class Character
     /**
      * @var Collection<int, CharacterVoiceline>
      */
-    #[ORM\OneToMany(targetEntity: CharacterVoiceline::class, mappedBy: 'characterName')]
+    #[ORM\OneToMany(targetEntity: CharacterVoiceline::class, mappedBy: 'characterName', cascade: ['persist', 'remove'])]
     private Collection $voicelines;
 
     #[ORM\ManyToOne(inversedBy: 'characters')]
