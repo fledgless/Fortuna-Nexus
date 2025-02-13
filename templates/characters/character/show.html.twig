@@ -8,13 +8,17 @@
             <h1>{{ character.name }}</h1>
             <div class="character-asc-mats">
                 {% if character.enemyDrops %}
-                    
+                    <img src="/uploads/{{ character.enemyDrops.fourStarFilename }}" alt="">
+                    <img src="/uploads/{{ character.enemyDrops.threeStarFilename }}" alt="">
+                    <img src="/uploads/{{ character.enemyDrops.twoStarFilename }}" alt="">
                 {% endif %}
                 {% if character.stagnantShadowDrop %}
                     <img src="/uploads/{{ character.stagnantShadowDrop.filename }}" alt="">
                 {% endif %}
                 {% if character.pathMaterials %}
-                    
+                    <img src="/uploads/{{ character.pathMaterials.fourStarFilename }}" alt="">
+                    <img src="/uploads/{{ character.pathMaterials.threeStarFilename }}" alt="">
+                    <img src="/uploads/{{ character.pathMaterials.twoStarFilename }}" alt="">
                 {% endif %}
                 {% if character.echoOfWarDrop %}
                     <img src="/uploads/{{ character.echoOfWarDrop.filename }}" alt="">
@@ -32,7 +36,13 @@
                 </nav>
                 <section class="open" id="traces">
                     <div class="content">
-                        <p>Traces to be added.</p>
+                        {% if character.characterKit %}
+                            <div class="traces">
+                                {% include "characters/traces/item.html.twig" %}
+                            </div>
+                        {% else %}
+                            <p>Eidolons to be added.</p>
+                        {% endif %}                        
                     </div>
                 </section>
                 <section id="eidolons">
