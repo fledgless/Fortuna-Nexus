@@ -1,0 +1,25 @@
+<div class="item-skill">
+    <img src="/uploads/{{ skill.filename }}" alt="">
+    <p>{{ skill.name }}</p>
+    <p>
+        {% if skill.enhanced is same as (true) %}
+        Enhanced 
+        {% endif %}
+        {{ skill.type }}
+    </p>
+    <p>{{ skill.tag }}</p>
+    {% if skill.energyGain %}
+        <p>Energy Gain: {{ skill.energyGain }}</p>
+    {% endif %}
+    {% if skill.energyCost %}
+        <p>Energy Cost: {{ skill.energyCost }}</p>
+    {% endif %}
+    {% if skill.breakMainTarget %}
+        {% if skill.breakAdjacentTargets %}
+            <p>Toughness reduction: {{ skill.breakMainTarget }} (main target), {{ skill.breakAdjacentTargets }}</p>
+        {% else %}
+            <p>Toughness reduction: {{ skill.breakMainTarget }}</p>
+        {% endif %}
+    {% endif %}
+    <p>{{ skill.descLevelOne|raw }}
+</div>

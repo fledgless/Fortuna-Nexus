@@ -27,14 +27,26 @@
             <div class="character-content">
                 <nav>
                     <ul class="character-nav">
-                        <li class="character-nav-link active" id="toggle-traces">Traces</li>
+                        <li class="character-nav-link active" id="toggle-skills">Skills</li>
+                        <li class="character-nav-link" id="toggle-traces">Traces</li>
                         <li class="character-nav-link" id="toggle-eidolons">Eidolons</li>
                         <li class="character-nav-link" id="toggle-voicelines">Voicelines</li>
                         <li class="character-nav-link" id="toggle-stories">Character stories</li>
                         <li class="character-nav-link">Build</li>
                     </ul>
                 </nav>
-                <section class="open" id="traces">
+                <section class="open" id="skills">
+                    <div class="content">
+                        {% if character.characterKit.skills %}
+                            <div class="skills">
+                                {% include "characters/skills/list.html.twig" %}
+                            </div>
+                        {% else %}
+                            <p>Eidolons to be added.</p>
+                        {% endif %}                        
+                    </div>
+                </section>
+                <section id="traces">
                     <div class="content">
                         {% if character.characterKit %}
                             <div class="traces">
@@ -85,13 +97,15 @@
     </div>
 
     <script>
-        let toggleTraces = document.querySelector('#toggle-traces'),
+        let toggleSkills = document.querySelector('#toggle-skills'),
+            toggleTraces = document.querySelector('#toggle-traces'),
             toggleEidolons = document.querySelector('#toggle-eidolons'),
             toggleVoicelines = document.querySelector('#toggle-voicelines'),
             toggleStories = document.querySelector('#toggle-stories'),
             allToggle = document.querySelectorAll('.character-nav-link');
 
-        let traces = document.querySelector('#traces'),
+        let skills = document.querySelector('#skills'),
+            traces = document.querySelector('#traces'),
             eidolons = document.querySelector('#eidolons'),
             voicelines = document.querySelector('#voicelines'),
             stories = document.querySelector('#stories'),
