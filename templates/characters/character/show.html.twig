@@ -30,83 +30,26 @@
                         <li class="character-nav-link">Build</li>
                     </ul>
                 </nav>
-                <div class="section open" id="traces">
+                <section class="open" id="traces">
                     <div class="content">
                         <p>Traces to be added.</p>
                     </div>
-                </div>
-                <div class="section" id="eidolons">
-                    {# <div class="content">
+                </section>
+                <section id="eidolons">
+                    <div class="content">
                         {% if character.characterKit.eidolons %}
-                            <h3>Eidolon 1</h3>
-                            {% if character.eidolons.eidolonOne %}
-                                {% for medium in character.eidolons.media|filter(medium => medium.imageRole == 'E1') %}
-                                    <img src="/uploads/{{ medium.filename }}" alt="">
-                                {% endfor %}
-                                <h4>{{ character.eidolons.eidolonOne|slice(0, 1)|join('') }}</h4>
-                                <p>{{ character.eidolons.eidolonOne|slice(1, 1)|join('') }}</p>
-                            {% else %}
-                                <p>Eidolon to be added.</p>
-                            {% endif %}
-                            <h3>Eidolon 2</h3>
-                            {% if character.eidolons.eidolonTwo %}
-                                {% for medium in character.eidolons.media|filter(medium => medium.imageRole == 'E2') %}
-                                    <img src="/uploads/{{ medium.filename }}" alt="">
-                                {% endfor %}
-                                <h4>{{ character.eidolons.eidolonTwo|slice(0, 1)|join('') }}</h4>
-                                <p>{{ character.eidolons.eidolonTwo|slice(1, 1)|join('') }}</p>
-                            {% else %}
-                                <p>Eidolon to be added.</p>
-                            {% endif %}
-                            <h3>Eidolon 3</h3>
-                            {% if character.eidolons.eidolonThree %}
-                                {% for medium in character.eidolons.media|filter(medium => medium.imageRole == 'E3') %}
-                                    <img src="/uploads/{{ medium.filename }}" alt="">
-                                {% endfor %}
-                                <h4>{{ character.eidolons.eidolonThree|slice(0, 1)|join('') }}</h4>
-                                <p>{{ character.eidolons.eidolonThree|slice(1, 1)|join('') }}</p>
-                            {% else %}
-                                <p>Eidolon to be added.</p>
-                            {% endif %}
-                            <h3>Eidolon 4</h3>
-                            {% if character.eidolons.eidolonFour %}
-                                {% for medium in character.eidolons.media|filter(medium => medium.imageRole == 'E4') %}
-                                    <img src="/uploads/{{ medium.filename }}" alt="">
-                                {% endfor %}
-                                <h3>Eidolon 4: {{ character.eidolons.eidolonFour|slice(0, 1)|join('') }}</h3>
-                                <p>{{ character.eidolons.eidolonFour|slice(1, 1)|join('') }}</p>
-                            {% endif %}
-                            <h3>Eidolon 5</h3>
-                            {% if character.eidolons.eidolonFive %}
-                                {% for medium in character.eidolons.media|filter(medium => medium.imageRole == 'E5') %}
-                                    <img src="/uploads/{{ medium.filename }}" alt="">
-                                {% endfor %}
-                                <h3>Eidolon 5: {{ character.eidolons.eidolonFive|slice(0, 1)|join('') }}</h3>
-                                <p>{{ character.eidolons.eidolonFive|slice(1, 1)|join('') }}</p>
-                            {% else %}
-                                <p>Eidolon to be added.</p>
-                            {% endif %}
-                            <h3>Eidolon 6</h3>
-                            {% if character.eidolons.eidolonSix %}
-                                {% for medium in character.eidolons.media|filter(medium => medium.imageRole == 'E6') %}
-                                    <img src="/uploads/{{ medium.filename }}" alt="">
-                                {% endfor %}
-                                <h3>Eidolon 6: {{ character.eidolons.eidolonSix|slice(0, 1)|join('') }}</h3>
-                                <p>{{ character.eidolons.eidolonSix|slice(1, 1)|join('') }}</p>
-                            {% else %}
-                                <p>Eidolon to be added.</p>
-                            {% endif %}
-                            <h2>Recommended stopping point for eidolons</h2>
-                            <p>{{ character.eidolons.stopPoint|raw }}</p>
+                            <div class="eidolons">
+                                {% include "characters/eidolons/list.html.twig" %}
+                            </div>
                         {% else %}
                             <p>Eidolons to be added.</p>
                         {% endif %}
-                    </div>#}
-                </div>
-                <div class="section" id="voicelines">
+                    </div>
+                </section>
+                <section id="voicelines">
                     <div class="content">
                         {% if character.voicelines %}
-                            <div class="voicelines active">
+                            <div class="voicelines">
                                 <h3>Voicelines</h3>
                                 {% include "characters/voicelines/voiceline-list.html.twig" %}
                             </div>
@@ -118,15 +61,15 @@
                             <p>Voicelines to be added.</p>
                         {% endif %}
                     </div>
-                </div> 
-                <div class="section" id="stories">
+                </section> 
+                <section id="stories">
                     <div class="content">
                         {% if character.stories %}
                         {% else %}
                         <p>Character stories to be added.</p>
                         {% endif %}
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </div>
@@ -135,54 +78,56 @@
         let toggleTraces = document.querySelector('#toggle-traces'),
             toggleEidolons = document.querySelector('#toggle-eidolons'),
             toggleVoicelines = document.querySelector('#toggle-voicelines'),
-            toggleStories = document.querySelector('#toggle-stories');
+            toggleStories = document.querySelector('#toggle-stories'),
+            allToggle = document.querySelectorAll('.character-nav-link');
 
         let traces = document.querySelector('#traces'),
             eidolons = document.querySelector('#eidolons'),
             voicelines = document.querySelector('#voicelines'),
-            stories = document.querySelector('#stories');
+            stories = document.querySelector('#stories'),
+            sections = document.querySelectorAll('section');
 
             toggleTraces.addEventListener("click", () => {
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
                 traces.classList.add('open');
-                eidolons.classList.remove('open');
-                voicelines.classList.remove('open');
-                stories.classList.remove('open');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
                 toggleTraces.classList.add('active');
-                toggleEidolons.classList.remove('active');
-                toggleVoicelines.classList.remove('active');
-                toggleStories.classList.remove('active');
             })
             
             toggleEidolons.addEventListener("click", () => {
-                traces.classList.remove('open');
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
                 eidolons.classList.add('open');
-                voicelines.classList.remove('open');
-                stories.classList.remove('open');
-                toggleTraces.classList.remove('active');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
                 toggleEidolons.classList.add('active');
-                toggleVoicelines.classList.remove('active');
-                toggleStories.classList.remove('active');
             })
             
             toggleVoicelines.addEventListener('click', () => {
-                traces.classList.remove('open');
-                eidolons.classList.remove('open');
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
                 voicelines.classList.add('open');
-                stories.classList.remove('open');
-                toggleTraces.classList.remove('active');
-                toggleEidolons.classList.remove('active');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
                 toggleVoicelines.classList.add('active');
-                toggleStories.classList.remove('active');
             })
             
             toggleStories.addEventListener('click', () => {
-                traces.classList.remove('open');
-                eidolons.classList.remove('open');
-                voicelines.classList.remove('open');
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
                 stories.classList.add('open');
-                toggleTraces.classList.remove('active');
-                toggleEidolons.classList.remove('active');
-                toggleVoicelines.classList.remove('active');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
                 toggleStories.classList.add('active');
             })
     </script>
