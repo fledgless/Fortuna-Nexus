@@ -79,7 +79,7 @@ header {
 }
 
 header, footer {
-    background-color: black;
+    background-color: #0f0e0e;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -109,7 +109,7 @@ h1 {
   text-shadow: 1px 1px 0px white;
   background: rgb(219,194,145);
   background: linear-gradient(129deg, rgba(219,194,145,1) 0%, rgba(147,116,56,1) 95%);
-  color: black;
+  color: #0f0e0e;
   padding: 10px 30px;
   border-radius: 3px;
 }
@@ -121,9 +121,14 @@ h2 {
 }
 
 h3 {
+  font-size: 20px;
+  color: rgb(201,106,106);
+  margin: 5px 0px;
+}
+
+h4 {
   text-transform: uppercase;
-  font-size: 16px;
-  margin-left: 8vh;
+  font-size: 14px;
 }
 
 a {
@@ -139,7 +144,7 @@ header, footer, h2, li a {
   color: #DBC291;
 }
 
-header, footer, h1, h2, h3, li, li a, strong, button, .lc-base-stat-value {
+header, footer, h1, h2, h3, h4, li, li a, strong, button, .lc-base-stat-value {
   font-family: DinProBold;
 }
 
@@ -234,7 +239,7 @@ header nav .main-nav li a img {
 }
 
 .sign-in-form button, .register form button {
-  background-color: #000000;
+  background-color: #0f0e0e;
   color: #FFFFFF;
   font-size: 16px;
   margin: 15px;
@@ -339,8 +344,202 @@ header nav .main-nav li a img {
   backdrop-filter: blur(2px);
 }
 
+.main-nav li a:hover {
+  background: #282828;
+}
 
-.list .five-star:hover {
+main .s-container {
+  margin: 2vh 5vh 2vh 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main .s-container .lc-show {
+  display: flex;
+  flex-direction: column;
+}
+
+.lc-basic-info {
+  display: flex;
+  flex-direction: row;
+  margin: 2vh;
+}
+
+.lc-show .lc-basic-info-base-stats {
+  background: rgb(40,40,40);
+  background: linear-gradient(177deg, rgba(40,40,40,1) 0%, rgba(0,0,0,1) 100%);
+  border-radius: 2%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lc-show h2, .character-show h2 {
+  font-size: 20px;
+  color: #FFFFFF;
+  border-radius: 1% 1% 0% 0%;
+  margin-left: 0;
+  min-height: 40px;
+  text-align: center;
+  padding-top: 15px;
+  margin-bottom: 0;
+}
+
+.lc-show .lc-basic-info-base-stats .lc-base-stats {
+  display: flex;
+  flex-direction: row;
+  margin: 1vh 5vh;
+  justify-content: space-around
+}
+
+.lc-show .lc-basic-info-base-stats .lc-base-stats .lc-base-stat-value {
+  margin-top: 5px;
+}
+
+.lc-show .lc-story {
+  width: 75%;
+  padding: 15px 35px 15px 30px;
+  margin-top: 2vh;
+  margin-right: auto;
+  margin-left: auto;
+  font-style: oblique;
+  text-align: justify;
+  background: rgb(40,40,40);
+  background: linear-gradient(164deg, rgba(40,40,40,1) 25%, rgba(0,0,0,1) 75%, rgba(40,40,40,1) 100%);
+}
+
+.lc-show .lc-path-rarity {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  background: #0000007c;
+  width: 120px;
+  padding: 10px 15px;
+  border-radius: 50px;
+}
+
+.lc-show .lc-path-rarity .lc-path {
+  height: 30px;
+}
+
+.lc-show .lc-path-rarity .lc-rarity {
+  width: 50px;
+}
+
+.lc-show .lightcone-superimposition, .character-show section {
+  display: none;
+}
+
+.lc-show .lightcone-superimposition.open, .character-show .open {
+  display: block;
+}
+
+.lc-show .skill-superimposition {
+  width: 75%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+.character-show .character-content {
+  margin: 20px auto 0px auto;
+  border-radius: 5px;
+}
+
+.lc-show .superimposition,
+.character-show .character-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0;
+  justify-content: center;
+}
+
+.lc-show .superimposition-toggle,
+.character-show .character-nav-link {
+  width: 19%;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  display: flex;
+  padding: 5px 0px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #282828;
+  background-color: #0f0e0e;
+  margin-bottom: 5px;
+}
+
+.lc-show .open,
+.character-show .open .content {
+  padding: 20px 25px;
+  text-align: justify;
+  background: rgba(0, 0, 0, 0.212);
+}
+
+.character-show .eidolon-skill-trace-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100px;
+  margin: 5px;
+  padding: 2px;
+  align-items: center;
+  border: 2px solid #282828;
+}
+
+.character-show .eidolon-skill-trace-container img {
+  height: 75px;
+  padding-left: 5px;
+}
+
+.character-show .eidolon-skill-trace-container div {
+  margin: 10px;
+}
+
+.character-show .eidolon-skill-trace-container div div {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.character-show .eidolon-skill-trace-container div .skill-energy, .character-show .eidolon-skill-trace-container .skill-break, .character-show .eidolon-skill-trace-container .skill-type {
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 5px;
+  color: rgba(201,163,106,1);
+}
+
+.character-show .eidolon-skill-trace-container div div p {
+  margin: 2px 5px;
+}
+
+@media screen and (max-width: 1000px) {
+  .character-show .character-nav-link {
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 825px) {
+  .lc-show .lc-basic-info-splash-laptop {
+    display: none;
+  }
+  .lc-show .lc-basic-info-splash-mobile {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+
+
+
+}.list .five-star:hover {
   background: rgba(201,163,106,1);
   font-family: DinProBold;
   transition: 0.4s;
@@ -391,8 +590,4 @@ header nav .main-nav li a img {
 .ascmat .two-star, .tracemat .two-star {
   background: rgb(80,107,63);
   background: linear-gradient(180deg, rgba(80,107,63,1) 0%, rgba(63,107,78,1) 20%, rgba(54,139,83,1) 70%);
-}
-
-.main-nav li a:hover {
-  background: #282828;
 }

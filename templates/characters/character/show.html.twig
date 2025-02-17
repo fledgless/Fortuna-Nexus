@@ -32,7 +32,6 @@
                         <li class="character-nav-link" id="toggle-eidolons">Eidolons</li>
                         <li class="character-nav-link" id="toggle-voicelines">Voicelines</li>
                         <li class="character-nav-link" id="toggle-stories">Character stories</li>
-                        <li class="character-nav-link">Build</li>
                     </ul>
                 </nav>
                 <section class="open" id="skills">
@@ -42,7 +41,7 @@
                                 {% include "characters/skills/list.html.twig" %}
                             </div>
                         {% else %}
-                            <p>Eidolons to be added.</p>
+                            <p>Skills to be added.</p>
                         {% endif %}                        
                     </div>
                 </section>
@@ -53,7 +52,7 @@
                                 {% include "characters/traces/item.html.twig" %}
                             </div>
                         {% else %}
-                            <p>Eidolons to be added.</p>
+                            <p>Traces to be added.</p>
                         {% endif %}                        
                     </div>
                 </section>
@@ -87,8 +86,9 @@
                 <section id="stories">
                     <div class="content">
                         {% if character.stories %}
+                            {% include "characters/stories/item.html.twig" %}
                         {% else %}
-                        <p>Character stories to be added.</p>
+                            <p>Character stories to be added.</p>
                         {% endif %}
                     </div>
                 </section>
@@ -110,6 +110,17 @@
             voicelines = document.querySelector('#voicelines'),
             stories = document.querySelector('#stories'),
             sections = document.querySelectorAll('section');
+
+            toggleSkills.addEventListener("click", () => {
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
+                skills.classList.add('open');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
+                toggleSkills.classList.add('active');
+            })
 
             toggleTraces.addEventListener("click", () => {
                 sections.forEach(section => {

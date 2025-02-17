@@ -1,6 +1,10 @@
 <div class="item-eidolon">
-    <img src="/uploads/{{ eidolon.filename }}" alt="">
-    <p>Eidolon {{ eidolon.number }}</p>
-    <p>{{ eidolon.name }}</p>
-    <p>{{ eidolon.description|raw }}
+    <div class="eidolon-skill-trace-container">
+        <img src="/uploads/{{ eidolon.filename }}" alt="">
+        <div>
+            <h4>Eidolon {{ eidolon.number }}</h4>
+            <h3>{{ eidolon.name }}</h3>
+            <div>{{ eidolon.description|raw }}</div>
+        </div>    
+    </div> 
 </div>
