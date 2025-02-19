@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Character;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Asset;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
@@ -66,6 +67,8 @@ class CharacterCrudController extends AbstractCrudController
             yield CollectionField::new('voicelines')->hideOnIndex()->useEntryCrudForm(CharacterVoicelineCrudController::class);
         
         yield FormField::addTab('Character stories');
-            yield AssociationField::new('stories')->hideOnIndex()->renderAsEmbeddedForm();
+            yield AssociationField::new('stories')->hideOnIndex()->renderAsEmbeddedForm()
+            ->addJsFiles(Asset::fromEasyAdminAssetPackage('field-text-editor.js')->onlyOnForms())
+            ->addCssFiles(Asset::fromEasyAdminAssetPackage('field-text-editor.css')->onlyOnForms());
     }
 }

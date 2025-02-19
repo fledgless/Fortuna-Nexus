@@ -22,18 +22,18 @@ class CharacterStoriesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield FormField::addTab('Details');
-            yield TextareaField::new('characterDetails');
+            yield TextEditorField::new('characterDetails');
         
         yield FormField::addTab('Story 1');
-            yield TextareaField::new('characterStoryPartOne');
+            yield TextEditorField::new('characterStoryPartOne');
 
         yield FormField::addTab('Story 2');
-            yield TextareaField::new('characterStoryPartTwo');
+            yield TextEditorField::new('characterStoryPartTwo');
 
         yield FormField::addTab('Story 3');
-            yield TextareaField::new('characterStoryPartThree');
+            yield TextEditorField::new('characterStoryPartThree');
 
         yield FormField::addTab('Story 4');
-            yield TextareaField::new('characterStoryPartFour');
+            yield TextEditorField::new('characterStoryPartFour');
     }
 }

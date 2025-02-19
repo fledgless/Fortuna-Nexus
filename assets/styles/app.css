@@ -53,6 +53,7 @@ body {
     margin: 0;
     font-family: DinPro;
     width: 100%;
+    line-height: 1.6;
 }
 
 header nav, main, footer {
@@ -409,9 +410,12 @@ main .s-container {
   display: flex;
   flex-direction: row;
   min-height: 100px;
-  margin: 5px;
-  padding: 2px;
   align-items: center;
+  padding: 2px;
+}
+
+.character-show .eidolon-skill-trace-container, .character-show .substats, .character-show .item-voiceline, .character-show .item-story {
+  margin: 5px;
   border: 2px solid #282828;
 }
 
@@ -424,7 +428,7 @@ main .s-container {
   margin: 10px;
 }
 
-.character-show .eidolon-skill-trace-container div div {
+.character-show .eidolon-skill-trace-container div div, .character-show .item-voiceline p, .character-show .item-story div {
   margin: 5px;
   font-size: 14px;
 }
@@ -436,6 +440,7 @@ main .s-container {
   font-size: 12px;
   margin: 0 5px;
   color: rgba(201,163,106,1);
+  line-height: 1.1;
 }
 
 .character-show .eidolon-skill-trace-container div div p {
@@ -446,8 +451,6 @@ main .s-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  border: 2px solid #282828;
-  margin: 5px;
   padding: 10px;
 }
 
@@ -472,9 +475,8 @@ main .s-container {
   background-color: #282828;
   border: 2px solid #DBC291;
   color: #DBC291;
-  padding: 3px;
+  padding: 3px 5px;
   margin-left: 35px;
-  max-width: 70px;
   font-size: 14px;
   text-align: center;
   font-weight: bold;
@@ -484,6 +486,10 @@ main .s-container {
   height: 50px;
   width: 50px;
   margin-right: 5px;
+}
+
+.character-show .item-voiceline, .character-show .item-story {
+  padding: 10px 25px;
 }
 
 main .s-container .lc-show {
