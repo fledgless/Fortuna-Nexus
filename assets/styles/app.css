@@ -98,8 +98,6 @@ footer p {
   margin: 5px 0px 5px 100px;
 }
 
-
-
 h1 {
   font-size: 48px;
   text-transform: uppercase;
@@ -122,8 +120,15 @@ h2 {
 
 h3 {
   font-size: 20px;
-  color: rgb(201,106,106);
   margin: 5px 0px;
+}
+
+.five-star h3, .five-star .substats .substat p  {
+  color: rgb(201,106,106);
+}
+
+.four-star h3, .four-star .substats .substat p {
+  color: rgba(60,59,98,1);
 }
 
 h4 {
@@ -220,9 +225,6 @@ header nav .main-nav li a img {
   height: 50px;
 }
 
-
-/* login form */
-
 .sign-in-form, .sign-in-form div, .register form, .register form div {
   display: flex;
   flex-direction: column;
@@ -251,9 +253,6 @@ header nav .main-nav li a img {
   color: #282828;
   transition: 0.4s;
 }
-
-
-/* character and lc list */
 
 .character-list, .lc-list {
   display: flex;
@@ -355,6 +354,138 @@ main .s-container {
   align-items: center;
 }
 
+.character-show {
+  width: 90%;
+}
+
+.character-show h2, .lc-show h2 {
+  font-size: 20px;
+  color: #FFFFFF;
+  border-radius: 1% 1% 0% 0%;
+  margin-left: 0;
+  min-height: 40px;
+  text-align: center;
+  padding-top: 15px;
+  margin-bottom: 0;
+}
+
+.character-show .character-content {
+  margin: 20px auto 0px auto;
+  border-radius: 5px;
+}
+
+.character-show .character-nav, .lc-show .superimposition {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0;
+  justify-content: center;
+}
+
+.character-show .character-nav-link, .lc-show .superimposition-toggle {
+  width: 15%;
+  min-width: 150px;
+  min-height: 40px;
+  max-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  display: flex;
+  padding: 5px 0px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #282828;
+  background-color: #0f0e0e;
+  margin-bottom: 5px;
+}
+
+.character-show .open .content, .lc-show .open {
+  padding: 20px 25px;
+  text-align: justify;
+  background: rgba(0, 0, 0, 0.212);
+}
+
+.character-show .eidolon-skill-trace-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100px;
+  margin: 5px;
+  padding: 2px;
+  align-items: center;
+  border: 2px solid #282828;
+}
+
+.character-show .eidolon-skill-trace-container img {
+  height: 75px;
+  padding-left: 5px;
+}
+
+.character-show .eidolon-skill-trace-container div {
+  margin: 10px;
+}
+
+.character-show .eidolon-skill-trace-container div div {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.character-show .eidolon-skill-trace-container div .skill-energy, .character-show .eidolon-skill-trace-container .skill-break, .character-show .eidolon-skill-trace-container .skill-type {
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 5px;
+  color: rgba(201,163,106,1);
+}
+
+.character-show .eidolon-skill-trace-container div div p {
+  margin: 2px 5px;
+}
+
+.character-show .substats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 2px solid #282828;
+  margin: 5px;
+  padding: 10px;
+}
+
+.character-show .substats .substat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.character-show .substats .substat p {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.character-show .substats .substat div p {
+  display: none;
+}
+
+.character-show .substats .substat div:hover p {
+  display: block;
+  position: absolute;
+  background-color: #282828;
+  border: 2px solid #DBC291;
+  color: #DBC291;
+  padding: 3px;
+  margin-left: 35px;
+  max-width: 70px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.character-show .substats .substat img {
+  height: 50px;
+  width: 50px;
+  margin-right: 5px;
+}
+
 main .s-container .lc-show {
   display: flex;
   flex-direction: column;
@@ -373,17 +504,6 @@ main .s-container .lc-show {
   max-width: 300px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.lc-show h2, .character-show h2 {
-  font-size: 20px;
-  color: #FFFFFF;
-  border-radius: 1% 1% 0% 0%;
-  margin-left: 0;
-  min-height: 40px;
-  text-align: center;
-  padding-top: 15px;
-  margin-bottom: 0;
 }
 
 .lc-show .lc-basic-info-base-stats .lc-base-stats {
@@ -444,80 +564,6 @@ main .s-container .lc-show {
   border-radius: 5px;
 }
 
-.character-show .character-content {
-  margin: 20px auto 0px auto;
-  border-radius: 5px;
-}
-
-.lc-show .superimposition,
-.character-show .character-nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 0;
-  justify-content: center;
-}
-
-.lc-show .superimposition-toggle,
-.character-show .character-nav-link {
-  width: 19%;
-  height: 30px;
-  text-align: center;
-  font-size: 16px;
-  display: flex;
-  padding: 5px 0px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: 1px solid #282828;
-  background-color: #0f0e0e;
-  margin-bottom: 5px;
-}
-
-.lc-show .open,
-.character-show .open .content {
-  padding: 20px 25px;
-  text-align: justify;
-  background: rgba(0, 0, 0, 0.212);
-}
-
-.character-show .eidolon-skill-trace-container {
-  display: flex;
-  flex-direction: row;
-  min-height: 100px;
-  margin: 5px;
-  padding: 2px;
-  align-items: center;
-  border: 2px solid #282828;
-}
-
-.character-show .eidolon-skill-trace-container img {
-  height: 75px;
-  padding-left: 5px;
-}
-
-.character-show .eidolon-skill-trace-container div {
-  margin: 10px;
-}
-
-.character-show .eidolon-skill-trace-container div div {
-  margin: 5px;
-  font-size: 14px;
-}
-
-.character-show .eidolon-skill-trace-container div .skill-energy, .character-show .eidolon-skill-trace-container .skill-break, .character-show .eidolon-skill-trace-container .skill-type {
-  display: flex;
-  flex-direction: row;
-  text-transform: uppercase;
-  font-size: 12px;
-  margin: 0 5px;
-  color: rgba(201,163,106,1);
-}
-
-.character-show .eidolon-skill-trace-container div div p {
-  margin: 2px 5px;
-}
-
 @media screen and (max-width: 1000px) {
   .character-show .character-nav-link {
     height: 50px;
@@ -535,11 +581,9 @@ main .s-container .lc-show {
     justify-content: center;
     margin-bottom: 10px;
   }
+}
 
-
-
-
-}.list .five-star:hover {
+.list .five-star:hover, .five-star .character-nav-link:hover {
   background: rgba(201,163,106,1);
   font-family: DinProBold;
   transition: 0.4s;

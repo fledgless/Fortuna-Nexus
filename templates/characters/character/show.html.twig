@@ -3,7 +3,6 @@
 {% block title %}{{ character.name }}{% endblock %}
 
 {% block body %}
-    <div class="s-container">
         <div class="character-show {% if character.rarity == "4-star"%}four-star {% else %}five-star{% endif %}">
             <h1>{{ character.name }}</h1>
             <div class="character-asc-mats">
@@ -36,13 +35,15 @@
                 </nav>
                 <section class="open" id="skills">
                     <div class="content">
-                        {% if character.characterKit.skills %}
-                            <div class="skills">
-                                {% include "characters/skills/list.html.twig" %}
-                            </div>
+                        {% if character.characterKit %}
+                            {% if character.characterKit.skills %}
+                                <div class="skills">
+                                    {% include "characters/skills/list.html.twig" %}
+                                </div>
+                            {% endif %} 
                         {% else %}
                             <p>Skills to be added.</p>
-                        {% endif %}                        
+                        {% endif %}                     
                     </div>
                 </section>
                 <section id="traces">
@@ -58,10 +59,12 @@
                 </section>
                 <section id="eidolons">
                     <div class="content">
-                        {% if character.characterKit.eidolons %}
-                            <div class="eidolons">
-                                {% include "characters/eidolons/list.html.twig" %}
-                            </div>
+                        {% if character.characterKit %}
+                            {% if character.characterKit.eidolons %}
+                                <div class="eidolons">
+                                    {% include "characters/eidolons/list.html.twig" %}
+                                </div>
+                            {% endif %}
                         {% else %}
                             <p>Eidolons to be added.</p>
                         {% endif %}
@@ -94,7 +97,6 @@
                 </section>
             </div>
         </div>
-    </div>
 
     <script>
         let toggleSkills = document.querySelector('#toggle-skills'),

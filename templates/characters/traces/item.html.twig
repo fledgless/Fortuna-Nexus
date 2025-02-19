@@ -1,5 +1,4 @@
 <div class="item-traces">
-    <div class="main-traces">
         <div class="eidolon-skill-trace-container">
             <img src="/uploads/{{ character.characterKit.mainTraceOneFilename }}" alt="">
             <div>
@@ -24,37 +23,27 @@
                 <div>{{ character.characterKit.mainTraceThreeDesc }}</div>
             </div>
         </div>
-    </div>
     <div class="substats">
         <div class="substat">
-            <p>
+            <div>
                 <img src="/uploads/{{ character.characterKit.substats[0].filename }}" alt="">
-                {{ character.characterKit.statOneValue }}
-                {% if not character.characterKit.substats|slice(0, 1)|join('') is same as 'SPD' %}
-                    %
-                {% endif %}
-            </p>
-            <p>{{ character.characterKit.substats|slice(0, 1)|join('') }}</p>
+                <p>{{ character.characterKit.substats|slice(0, 1)|join('') }}</p>
+            </div>
+            <p>{{ character.characterKit.statOneValue }}{% if not character.characterKit.substats|slice(0, 1)|join('') is same as 'SPD' %}%{% endif %}</p>
         </div>
         <div class="substat">
-            <p>
+            <div>
                 <img src="/uploads/{{ character.characterKit.substats[1].filename }}" alt="">
-                {{ character.characterKit.statTwoValue }}
-                {% if not character.characterKit.substats|slice(1, 1)|join('') is same as 'SPD' %}
-                    %
-                {% endif %}
-            </p>
-            <p>{{ character.characterKit.substats|slice(1, 1)|join('') }}</p>
+                <p>{{ character.characterKit.substats|slice(1, 1)|join('') }}</p>
+            </div>
+            <p>{{ character.characterKit.statTwoValue }}{% if not character.characterKit.substats|slice(1, 1)|join('') is same as 'SPD' %}%{% endif %}</p>
         </div>
         <div class="substat">
-            <p>
+            <div>
                 <img src="/uploads/{{ character.characterKit.substats[2].filename }}" alt="">
-                {{ character.characterKit.statThreeValue }}
-                {% if not character.characterKit.substats|slice(2, 1)|join('') is same as 'SPD' %}
-                    %
-                {% endif %}
-            </p>
-            <p>{{ character.characterKit.substats|slice(2, 1)|join('') }}</p>
+                <p>{{ character.characterKit.substats|slice(2, 1)|join('') }}</p>
+            </div>
+            <p>{{ character.characterKit.statThreeValue }}{% if not character.characterKit.substats|slice(2, 1)|join('') is same as 'SPD' %}%{% endif %}</p>
         </div>
     </div>
 </div>
