@@ -6,22 +6,59 @@
         <div class="character-show {% if character.rarity == "4-star"%}four-star {% else %}five-star{% endif %}">
             <h1>{{ character.name }}</h1>
             <div class="character-asc-mats">
-                {% if character.enemyDrops %}
-                    <img src="/uploads/{{ character.enemyDrops.fourStarFilename }}" alt="">
-                    <img src="/uploads/{{ character.enemyDrops.threeStarFilename }}" alt="">
-                    <img src="/uploads/{{ character.enemyDrops.twoStarFilename }}" alt="">
-                {% endif %}
-                {% if character.stagnantShadowDrop %}
-                    <img src="/uploads/{{ character.stagnantShadowDrop.filename }}" alt="">
-                {% endif %}
-                {% if character.pathMaterials %}
-                    <img src="/uploads/{{ character.pathMaterials.fourStarFilename }}" alt="">
-                    <img src="/uploads/{{ character.pathMaterials.threeStarFilename }}" alt="">
-                    <img src="/uploads/{{ character.pathMaterials.twoStarFilename }}" alt="">
-                {% endif %}
-                {% if character.echoOfWarDrop %}
-                    <img src="/uploads/{{ character.echoOfWarDrop.filename }}" alt="">
-                {% endif %}
+                <h2>Materials</h2>
+                <div class="ascension-mats">
+                    <div class="enemy-drops">
+                        {% if character.enemyDrops %}
+                            <a href="#">
+                                <img src="/uploads/{{ character.enemyDrops.fourStarFilename }}" alt="">
+                                <p>{{ character.enemyDrops.fourStarName }}</p>
+                            </a>
+                            <a href="#">
+                                <img src="/uploads/{{ character.enemyDrops.threeStarFilename }}" alt="">
+                                <p>{{ character.enemyDrops.threeStarName }}</p>
+                            </a>
+                            <a href="#">
+                                <img src="/uploads/{{ character.enemyDrops.twoStarFilename }}" alt="">
+                                <p>{{ character.enemyDrops.twoStarName }}</p>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="stagnant-shadow-drop">
+                        {% if character.stagnantShadowDrop %}
+                            <a href="#">
+                                <img src="/uploads/{{ character.stagnantShadowDrop.filename }}" alt="">
+                                <p>{{ character.stagnantShadowDrop.name }}</p>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="traces-mats">
+                    <div class="path-materials">
+                        {% if character.pathMaterials %}
+                            <a href="#">
+                                <img src="/uploads/{{ character.pathMaterials.fourStarFilename }}" alt="">
+                                <p>{{ character.pathMaterials.fourStarName }}</p>
+                            </a>
+                            <a href="#">
+                                <img src="/uploads/{{ character.pathMaterials.threeStarFilename }}" alt="">
+                                <p>{{ character.pathMaterials.threeStarName }}</p>
+                            </a>
+                            <a href="#">
+                                <img src="/uploads/{{ character.pathMaterials.twoStarFilename }}" alt="">
+                                <p>{{ character.pathMaterials.twoStarName }}</p>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="echo-drop">
+                        {% if character.echoOfWarDrop %}
+                            <a href="#">
+                                <img src="/uploads/{{ character.echoOfWarDrop.filename }}" alt="">
+                                <p>{{ character.echoOfWarDrop.name }}</p>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
             <div class="character-content">
                 <nav>
@@ -35,15 +72,13 @@
                 </nav>
                 <section class="open" id="skills">
                     <div class="content">
-                        {% if character.characterKit %}
-                            {% if character.characterKit.skills %}
-                                <div class="skills">
-                                    {% include "characters/skills/list.html.twig" %}
-                                </div>
-                            {% endif %} 
+                        {% if character.characterKit and not character.characterKit.skills is empty  %}
+                            <div class="skills">
+                                {% include "characters/skills/list.html.twig" %}
+                            </div>
                         {% else %}
                             <p>Skills to be added.</p>
-                        {% endif %}                     
+                        {% endif %}                      
                     </div>
                 </section>
                 <section id="traces">
@@ -59,12 +94,10 @@
                 </section>
                 <section id="eidolons">
                     <div class="content">
-                        {% if character.characterKit %}
-                            {% if character.characterKit.eidolons %}
-                                <div class="eidolons">
-                                    {% include "characters/eidolons/list.html.twig" %}
-                                </div>
-                            {% endif %}
+                        {% if character.characterKit and not character.characterKit.eidolons is empty %}
+                            <div class="eidolons">
+                                {% include "characters/eidolons/list.html.twig" %}
+                            </div>
                         {% else %}
                             <p>Eidolons to be added.</p>
                         {% endif %}
@@ -72,7 +105,7 @@
                 </section>
                 <section id="voicelines">
                     <div class="content">
-                        {% if character.voicelines %}
+                        {% if not character.voicelines is empty %}
                             <div class="voicelines">
                                 {% include "characters/voicelines/voiceline-list.html.twig" %}
                             </div>

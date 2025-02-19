@@ -4,7 +4,7 @@
             <div>
                 <h4>Main Trace 1</h4>
                 <h3>{{ character.characterKit.mainTraceOneName }}</h3>
-                <div>{{ character.characterKit.mainTraceOneDesc }}</div>
+                <div>{{ character.characterKit.mainTraceOneDesc|raw }}</div>
             </div>
         </div>
         <div class="eidolon-skill-trace-container">
@@ -12,7 +12,7 @@
             <div>
                 <h4>Main Trace 2</h4>
                 <h3>{{ character.characterKit.mainTraceTwoName }}</h3>
-                <div>{{ character.characterKit.mainTraceTwoDesc }}</div>
+                <div>{{ character.characterKit.mainTraceTwoDesc|raw }}</div>
             </div>
         </div>
         <div class="eidolon-skill-trace-container">
@@ -20,7 +20,7 @@
             <div>
                 <h4>Main Trace 3</h4>
                 <h3>{{ character.characterKit.mainTraceThreeName }}</h3>
-                <div>{{ character.characterKit.mainTraceThreeDesc }}</div>
+                <div>{{ character.characterKit.mainTraceThreeDesc|raw }}</div>
             </div>
         </div>
     <div class="substats">

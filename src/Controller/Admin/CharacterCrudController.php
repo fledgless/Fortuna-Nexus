@@ -44,14 +44,14 @@ class CharacterCrudController extends AbstractCrudController
             yield FormField::addColumn();
                 yield SlugField::new('slug')->setTargetFieldName('name')->hideOnIndex();
                 yield AssociationField::new('releaseVersion');
-                yield DateField::new('releaseDate');
-                yield BooleanField::new('announced', 'Announced?');
+                yield DateField::new('releaseDate')->hideOnIndex();
+                yield BooleanField::new('announced', 'Announced?')->hideOnIndex();
                 yield BooleanField::new('released', 'Released?');
 
         yield FormField::addTab('Media'); 
             yield ImageField::new('iconFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
-            yield ImageField::new('splashFilename', 'Splash art')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
-            yield ImageField::new('miniatureFilename', 'Smaller icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+            yield ImageField::new('splashFilename', 'Splash art')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]')->hideOnIndex();
+            yield ImageField::new('miniatureFilename', 'Smaller icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]')->hideOnIndex();
             yield CollectionField::new('media')->useEntryCrudForm();
 
         yield FormField::addTab('Materials');

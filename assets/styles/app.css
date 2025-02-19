@@ -115,8 +115,6 @@ h1 {
 
 h2 {
   font-size: 24px;
-  margin-left: 2vh;
-  margin-bottom: 4vh;
 }
 
 h3 {
@@ -124,11 +122,11 @@ h3 {
   margin: 5px 0px;
 }
 
-.five-star h3, .five-star .substats .substat p  {
+.five-star h3, .five-star .substats .substat p, .five-star strong  {
   color: rgb(201,106,106);
 }
 
-.four-star h3, .four-star .substats .substat p {
+.four-star h3, .four-star .substats .substat p, .four-star strong {
   color: rgba(60,59,98,1);
 }
 
@@ -360,14 +358,39 @@ main .s-container {
 }
 
 .character-show h2, .lc-show h2 {
-  font-size: 20px;
-  color: #FFFFFF;
-  border-radius: 1% 1% 0% 0%;
-  margin-left: 0;
+  color: transparent;
+  background-clip: text;
   min-height: 40px;
   text-align: center;
-  padding-top: 15px;
-  margin-bottom: 0;
+  padding-top: 10px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.five-star h2 {
+  background-image: linear-gradient(rgba(201,106,106,1), rgba(201,163,106,1))
+}
+
+.four-star h2 {
+  background-image: linear-gradient(rgba(60,59,98,1), rgba(98,59,90,1));
+}
+
+.character-show .character-asc-mats {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.212);
+  padding: 20px;
+  align-items: center;
+  width: 40%;
+}
+
+.character-show .character-asc-mats div {
+  display: flex;
+  flex-direction: row;
+}
+
+.character-show .character-asc-mats img {
+  width: 50px;
 }
 
 .character-show .character-content {
@@ -465,24 +488,24 @@ main .s-container {
   font-size: 18px;
 }
 
-.character-show .substats .substat div p {
+.character-show .substats .substat div p, .character-show .character-asc-mats p {
   display: none;
 }
 
-.character-show .substats .substat div:hover p {
+.character-show .substats .substat div:hover p, .character-show .character-asc-mats a:hover p {
   display: block;
   position: absolute;
   background-color: #282828;
   border: 2px solid #DBC291;
   color: #DBC291;
   padding: 3px 5px;
-  margin-left: 35px;
+  margin-left: 10px;
   font-size: 14px;
   text-align: center;
   font-weight: bold;
 }
 
-.character-show .substats .substat img {
+.character-show .substats .substat div, .character-show .substats .substat img {
   height: 50px;
   width: 50px;
   margin-right: 5px;
@@ -619,19 +642,19 @@ main .s-container .lc-show {
   transition: 0.4s;
 }
 
-.list .five-star, .five-star h2, .five-star .active {
+.list .five-star, .five-star .active, .five-star h1 {
   background: rgb(201,106,106);
   background: linear-gradient(180deg, rgba(201,106,106,1) 0%, rgba(201,163,106,1) 50%);
 }
 
-.list .four-star, .four-star h2, .four-star .active,
+.list .four-star, .four-star .active,
 .ascmat .four-star, .tracemat .four-star,
 .bossmat, .echomat {
   background: rgb(60,59,98);
   background: linear-gradient(180deg, rgba(60,59,98,1) 0%, rgba(98,59,90,1) 50%);
 }
 
-.list .three-star, .three-star h2, .three-star .active,
+.list .three-star, .three-star .active,
 .ascmat .three-star, .tracemat .three-star {
   background: rgb(52,35,137);
   background: linear-gradient(180deg, rgba(52,35,137,1) 0%, rgba(35,87,137,1) 20%, rgba(36,104,170,1) 70%);

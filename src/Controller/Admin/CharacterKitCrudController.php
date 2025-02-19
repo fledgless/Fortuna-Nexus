@@ -58,17 +58,17 @@ class CharacterKitCrudController extends AbstractCrudController
         
         yield FormField::addTab('Main Trace 1');
             yield TextField::new('mainTraceOneName', 'Name');
-            yield TextareaField::new('mainTraceOneDesc', 'Description');
+            yield TextEditorField::new('mainTraceOneDesc', 'Description');
             yield ImageField::new('mainTraceOneFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
         
         yield FormField::addTab('Main Trace 2');
             yield TextField::new('mainTraceTwoName', 'Name');
-            yield TextareaField::new('mainTraceTwoDesc', 'Description');
+            yield TextEditorField::new('mainTraceTwoDesc', 'Description');
             yield ImageField::new('mainTraceTwoFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
         yield FormField::addTab('Main Trace 3');
             yield TextField::new('mainTraceThreeName', 'Name');
-            yield TextareaField::new('mainTraceThreeDesc', 'Description');
+            yield TextEditorField::new('mainTraceThreeDesc', 'Description');
             yield ImageField::new('mainTraceThreeFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
         yield FormField::addTab('Skills');
