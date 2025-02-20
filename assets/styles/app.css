@@ -306,6 +306,7 @@ header nav .main-nav li a img {
   margin-top: 140px;
   border-radius: 30px;
   text-shadow: -2px 2px 3px #000000;
+  line-height: 1;
 }
 
 .lc-name {
@@ -398,7 +399,7 @@ main .s-container {
   border-radius: 5px;
 }
 
-.character-show .character-nav, .lc-show .superimposition {
+.character-show ul, .lc-show .superimposition {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -406,7 +407,7 @@ main .s-container {
   justify-content: center;
 }
 
-.character-show .character-nav-link, .lc-show .superimposition-toggle {
+.character-show li, .lc-show .superimposition-toggle {
   width: 15%;
   min-width: 150px;
   min-height: 40px;
@@ -442,6 +443,10 @@ main .s-container {
   border: 2px solid #282828;
 }
 
+.character-show .item-voiceline, .character-show .item-story {
+  cursor: pointer;
+}
+
 .character-show .eidolon-skill-trace-container img {
   height: 75px;
   padding-left: 5px;
@@ -454,6 +459,14 @@ main .s-container {
 .character-show .eidolon-skill-trace-container div div, .character-show .item-voiceline p, .character-show .item-story div {
   margin: 5px;
   font-size: 14px;
+}
+
+.character-show .item-voiceline p, .character-show .item-story div, .lc-show .lightcone-superimposition, .character-show section, .character-show .voicelines, .character-show .substats .substat div p, .character-show .character-asc-mats p {
+  display: none;
+}
+
+.character-show .item-voiceline.open p, .character-show .item-story.open div, .lc-show .lightcone-superimposition.open, .character-show .open, .character-show .voicelines.open {
+  display: block;
 }
 
 .character-show .eidolon-skill-trace-container div .skill-energy, .character-show .eidolon-skill-trace-container .skill-break, .character-show .eidolon-skill-trace-container .skill-type {
@@ -486,10 +499,6 @@ main .s-container {
 .character-show .substats .substat p {
   font-weight: bold;
   font-size: 18px;
-}
-
-.character-show .substats .substat div p, .character-show .character-asc-mats p {
-  display: none;
 }
 
 .character-show .substats .substat div:hover p, .character-show .character-asc-mats a:hover p {
@@ -575,14 +584,6 @@ main .s-container .lc-show {
 
 .lc-show .lc-path-rarity .lc-rarity {
   width: 50px;
-}
-
-.lc-show .lightcone-superimposition, .character-show section {
-  display: none;
-}
-
-.lc-show .lightcone-superimposition.open, .character-show .open {
-  display: block;
 }
 
 .lc-show .skill-superimposition {

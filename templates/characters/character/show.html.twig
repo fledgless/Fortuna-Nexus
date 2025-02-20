@@ -105,11 +105,15 @@
                 </section>
                 <section id="voicelines">
                     <div class="content">
+                        <ul>
+                            <li class="toggle-voicelines active" id="toggle-exploration">Exploration</li>
+                            <li class="toggle-voicelines" id="toggle-combat">Combat</li>
+                        </ul>
                         {% if not character.voicelines is empty %}
-                            <div class="voicelines">
+                            <div class="voicelines open" id="exploration">
                                 {% include "characters/voicelines/voiceline-list.html.twig" %}
                             </div>
-                            <div class="voicelines">
+                            <div class="voicelines" id="combat">
                                 {% include "characters/voicelines/combat-list.html.twig" %}
                             </div>
                         {% else %}
@@ -198,5 +202,38 @@
                 })
                 toggleStories.classList.add('active');
             })
+
+            let toggleExploration = document.querySelector('#toggle-exploration'),
+                toggleCombat = document.querySelector('#toggle-combat'),
+                exploration = document.querySelector('#exploration'),
+                combat = document.querySelector('#combat');
+
+            toggleExploration.addEventListener('click', () => {
+                exploration.classList.add('open');
+                combat.classList.remove('open');
+                toggleExploration.classList.add('active');
+                toggleCombat.classList.remove('active');
+            })
+
+            toggleCombat.addEventListener('click', () => {
+                combat.classList.add('open');
+                exploration.classList.remove('open');
+                toggleCombat.classList.add('active');
+                toggleExploration.classList.remove('active');
+            })
+
+            let voicelineList = document.querySelectorAll(".item-voiceline");
+            for (let i = 0; i < voicelineList.length; i++) {
+                voicelineList[i].addEventListener('click', () => {
+                    voicelineList[i].classList.toggle('open');
+                })
+            }
+
+            let storyList = document.querySelectorAll(".item-story");
+            for (let i = 0; i < storyList.length; i++) {
+                storyList[i].addEventListener('click', () => {
+                    storyList[i].classList.toggle('open');
+                })
+            }
     </script>
 {% endblock %}
