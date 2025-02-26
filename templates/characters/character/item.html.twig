@@ -13,8 +13,8 @@
             {% if character.released == 0 and character.announced == 1 %}
                 <div class="upcoming">Upcoming</div>
             {% endif %}
-            {% if character.released == 1 and character.releaseVersion == "3.0" %}
-                <div class="new">New in {{ character.releaseVersion }}</div>
+            {% if character.released == 1 and character.releaseVersion.patch == 3.1 %}
+                <div class="new">New in {{ character.releaseVersion.patch }}</div>
             {% endif %}
             <div class="icon">
                 <img class="character-icon" src="/uploads/{{ character.iconFilename }}" alt="">

@@ -16,6 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 
 class CharacterCrudController extends AbstractCrudController
 {
@@ -40,13 +41,23 @@ class CharacterCrudController extends AbstractCrudController
                         '4-star' => '4-star',
                         'Trailblazer' => 'Trailblazer',
                     ]);
+                yield ChoiceField::new('faction')->setChoices([
+
+                ]);
 
             yield FormField::addColumn();
                 yield SlugField::new('slug')->setTargetFieldName('name')->hideOnIndex();
+                yield TextField::new('engVoice');
+                yield TextField::new('jpVoice');
+                yield TextField::new('cnVoice');
+                yield TextField::new('krVoice');
+            
+            yield FormField::addColumn();
                 yield AssociationField::new('releaseVersion');
                 yield DateField::new('releaseDate')->hideOnIndex();
                 yield BooleanField::new('announced', 'Announced?')->hideOnIndex();
                 yield BooleanField::new('released', 'Released?');
+                yield TextEditorField::new('description');
 
         yield FormField::addTab('Media'); 
             yield ImageField::new('iconFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');

@@ -399,7 +399,7 @@ main .s-container {
   border-radius: 5px;
 }
 
-.character-show ul, .lc-show .superimposition {
+.character-show ul, .lc-show ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -407,7 +407,7 @@ main .s-container {
   justify-content: center;
 }
 
-.character-show li, .lc-show .superimposition-toggle {
+.character-show li, .lc-show li {
   width: 15%;
   min-width: 150px;
   min-height: 40px;
@@ -422,6 +422,14 @@ main .s-container {
   border: 1px solid #282828;
   background-color: #0f0e0e;
   margin-bottom: 5px;
+}
+
+#voicelines li {
+  background-color: #0f0e0ea2;
+}
+
+#voicelines li.active {
+  background-color: rgb(201,106,106);
 }
 
 .character-show .open .content, .lc-show .open {
@@ -443,8 +451,10 @@ main .s-container {
   border: 2px solid #282828;
 }
 
-.character-show .item-voiceline, .character-show .item-story {
+.character-show .item-voiceline:hover, .character-show .item-story:hover {
   cursor: pointer;
+  background-color: #0f0e0ea2;
+  transition: 0.4s;
 }
 
 .character-show .eidolon-skill-trace-container img {
@@ -475,7 +485,7 @@ main .s-container {
   text-transform: uppercase;
   font-size: 12px;
   margin: 0 5px;
-  color: rgba(201,163,106,1);
+  color: rgb(201, 156, 89);
   line-height: 1.1;
 }
 
@@ -614,7 +624,7 @@ main .s-container .lc-show {
 }
 
 .list .five-star:hover, .five-star .character-nav-link:hover {
-  background: rgba(201,163,106,1);
+  background: rgb(201, 156, 89);
   font-family: DinProBold;
   transition: 0.4s;
 }
@@ -643,16 +653,16 @@ main .s-container .lc-show {
   transition: 0.4s;
 }
 
-.list .five-star, .five-star .active, .five-star h1 {
+.list .five-star, .five-star .character-nav .active, .five-star h1 {
   background: rgb(201,106,106);
-  background: linear-gradient(180deg, rgba(201,106,106,1) 0%, rgba(201,163,106,1) 50%);
+  background: linear-gradient(180deg, rgba(201,106,106,1) 0%, rgb(201, 156, 89) 75%);
 }
 
 .list .four-star, .four-star .active,
 .ascmat .four-star, .tracemat .four-star,
 .bossmat, .echomat {
   background: rgb(60,59,98);
-  background: linear-gradient(180deg, rgba(60,59,98,1) 0%, rgba(98,59,90,1) 50%);
+  background: linear-gradient(180deg, rgba(60,59,98,1) 0%, rgba(98,59,90,1) 75%);
 }
 
 .list .three-star, .three-star .active,
