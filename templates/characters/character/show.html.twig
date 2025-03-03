@@ -4,7 +4,12 @@
 
 {% block body %}
         <div class="character-show {% if character.rarity == "4-star"%}four-star {% else %}five-star{% endif %}">
-            <h1>{{ character.name }}</h1>
+            <div class="character-banner">
+                <img src="/uploads/{{ character.miniatureFilename }}" alt="">
+                <div>
+                    <h1>{{ character.name }}</h1>
+                </div>
+            </div>
             <div class="character-asc-mats">
                 <h2>Materials</h2>
                 <div class="ascension-mats">

@@ -358,6 +358,35 @@ main .s-container {
   width: 90%;
 }
 
+.character-show h1 {
+  background: none;
+  margin: 0;
+  line-height: 1;
+  font-size: 40px;
+}
+
+.character-banner {
+  display: flex;
+  flex-direction: row;
+  height: 110px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.character-banner img {
+  height: 100px
+}
+
+.character-banner div {
+  width: 85%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .character-show h2, .lc-show h2 {
   color: transparent;
   background-clip: text;
@@ -623,42 +652,38 @@ main .s-container .lc-show {
   }
 }
 
-.list .five-star:hover, .five-star .character-nav-link:hover {
-  background: rgb(201, 156, 89);
+.list .item-character:hover {
   font-family: DinProBold;
   transition: 0.4s;
 }
 
-.list .four-star:hover,
-.four-star .superimposition-toggle:hover,
+.list .five-star:hover, .five-star .character-nav-link:hover {
+  background: rgb(201,131,98);
+}
+
+.list .four-star:hover, .four-star .superimposition-toggle:hover,
 .four-star .character-nav-link:hover,
 .ascmat:hover .four-star, .tracemat:hover .four-star,
 .bossmat:hover, .echomat:hover {
-  background: #623b5a;
-  font-family: DinProBold;
-  transition: 0.4s;
+  background: rgb(79,59,94);
 }
 
 .list .three-star:hover,
 .three-star .superimposition-toggle:hover,
 .ascmat:hover .three-star, .tracemat:hover .three-star {
   background: #235789;
-  font-family: DinProBold;
-  transition: 0.4s;
 }
 
 .ascmat:hover .two-star, .tracemat:hover .two-star {
   background: #3f6b4e;
-  font-family: DinProBold;
-  transition: 0.4s;
 }
 
-.list .five-star, .five-star .character-nav .active, .five-star h1 {
+.list .five-star, .five-star .character-nav .active, .five-star .character-banner {
   background: rgb(201,106,106);
   background: linear-gradient(180deg, rgba(201,106,106,1) 0%, rgb(201, 156, 89) 75%);
 }
 
-.list .four-star, .four-star .active,
+.list .four-star, .four-star .character-banner, .four-star .active,
 .ascmat .four-star, .tracemat .four-star,
 .bossmat, .echomat {
   background: rgb(60,59,98);
