@@ -356,6 +356,9 @@ main .s-container {
 
 .character-show {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .character-show h1 {
@@ -373,10 +376,11 @@ main .s-container {
   justify-content: space-between;
   border-radius: 20px;
   margin-bottom: 20px;
+  max-width: 800px;
 }
 
 .character-banner img {
-  height: 100px
+  height: 105px;
 }
 
 .character-banner div {
