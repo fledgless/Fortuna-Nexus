@@ -7,8 +7,8 @@
                 <p>{{ character.name }}</p>
             </div>
             <div class="character-path-type">
-                <img class="character-path" src="/uploads/{{ character.path.pathFilename }}" alt="">
-                <img class="character-type" src="/uploads/{{ character.type.typeFilename }}" alt="">
+                <img loading="lazy" class="character-path" src="/uploads/{{ character.path.pathFilename }}" alt="">
+                <img loading="lazy" class="character-type" src="/uploads/{{ character.type.typeFilename }}" alt="">
             </div>
             {% if character.released == 0 and character.announced == 1 %}
                 <div class="upcoming">Upcoming</div>
@@ -17,7 +17,7 @@
                 <div class="new">New in {{ character.releaseVersion.patch }}</div>
             {% endif %}
             <div class="icon">
-                <img class="character-icon" src="/uploads/{{ character.iconFilename }}" alt="">
+                <img loading="lazy" class="character-icon" src="/uploads/{{ character.iconFilename }}" alt="">
             </div>
         </a>
     </div>
