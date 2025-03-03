@@ -415,7 +415,7 @@ main .s-container {
   background: rgba(0, 0, 0, 0.212);
   padding: 20px;
   align-items: center;
-  width: 40%;
+  width: 45%;
 }
 
 .character-show .character-asc-mats div {
@@ -425,6 +425,14 @@ main .s-container {
 
 .character-show .character-asc-mats img {
   width: 50px;
+}
+
+#mat {
+  margin: 2px;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  padding: 2px;
 }
 
 .character-show .character-content {
@@ -682,25 +690,22 @@ main .s-container .lc-show {
   background: #3f6b4e;
 }
 
-.list .five-star, .five-star .character-nav .active, .five-star .character-banner {
+.list .five-star, .five-star .character-nav .active, .five-star .character-banner, .five-star-mat {
   background: rgb(201,106,106);
   background: linear-gradient(180deg, rgba(201,106,106,1) 0%, rgb(201, 156, 89) 75%);
 }
 
-.list .four-star, .four-star .character-banner, .four-star .active,
-.ascmat .four-star, .tracemat .four-star,
-.bossmat, .echomat {
+.list .four-star, .four-star .character-banner, .four-star .active, .four-star-mat {
   background: rgb(60,59,98);
   background: linear-gradient(180deg, rgba(60,59,98,1) 0%, rgba(98,59,90,1) 75%);
 }
 
-.list .three-star, .three-star .active,
-.ascmat .three-star, .tracemat .three-star {
+.list .three-star, .three-star .active, .three-star-mat {
   background: rgb(52,35,137);
   background: linear-gradient(180deg, rgba(52,35,137,1) 0%, rgba(35,87,137,1) 20%, rgba(36,104,170,1) 70%);
 }
 
-.ascmat .two-star, .tracemat .two-star {
+.two-star-mat {
   background: rgb(80,107,63);
   background: linear-gradient(180deg, rgba(80,107,63,1) 0%, rgba(63,107,78,1) 20%, rgba(54,139,83,1) 70%);
 }
