@@ -38,6 +38,8 @@ class CharacterEidolonCrudController extends AbstractCrudController
                 "E1" => 1, "E2" => 2, "E3" => 3, "E4" => 4, "E5" => 5, "E6" => 6,
             ]);
             yield TextEditorField::new('description')->hideOnIndex();
+            yield AssociationField::new('enhancedSkills', 'Skills enhanced by E3/E5:')->hideOnIndex();
+            yield AssociationField::new('enhancedMemoSkills', 'Memo-skills enhanced by E3/E5:')->hideOnIndex();
 
         yield FormField::addColumn();
             yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');

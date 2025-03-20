@@ -71,7 +71,7 @@ class Character
     /**
      * @var Collection<int, CharacterVoiceline>
      */
-    #[ORM\OneToMany(targetEntity: CharacterVoiceline::class, mappedBy: 'characterName')]
+    #[ORM\OneToMany(targetEntity: CharacterVoiceline::class, mappedBy: 'characterName', cascade: ['persist', 'remove'])]
     private Collection $voicelines;
 
     #[ORM\ManyToOne(inversedBy: 'characters')]
@@ -85,6 +85,24 @@ class Character
 
     #[ORM\ManyToOne(inversedBy: 'characters')]
     private ?EchoOfWarDrop $echoOfWarDrop = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $engVoice = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $jpVoice = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cnVoice = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $krVoice = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $faction = null;
 
     public function __construct()
     {
@@ -384,6 +402,78 @@ class Character
     public function setEchoOfWarDrop(?EchoOfWarDrop $echoOfWarDrop): static
     {
         $this->echoOfWarDrop = $echoOfWarDrop;
+
+        return $this;
+    }
+
+    public function getEngVoice(): ?string
+    {
+        return $this->engVoice;
+    }
+
+    public function setEngVoice(?string $engVoice): static
+    {
+        $this->engVoice = $engVoice;
+
+        return $this;
+    }
+
+    public function getJpVoice(): ?string
+    {
+        return $this->jpVoice;
+    }
+
+    public function setJpVoice(?string $jpVoice): static
+    {
+        $this->jpVoice = $jpVoice;
+
+        return $this;
+    }
+
+    public function getCnVoice(): ?string
+    {
+        return $this->cnVoice;
+    }
+
+    public function setCnVoice(?string $cnVoice): static
+    {
+        $this->cnVoice = $cnVoice;
+
+        return $this;
+    }
+
+    public function getKrVoice(): ?string
+    {
+        return $this->krVoice;
+    }
+
+    public function setKrVoice(?string $krVoice): static
+    {
+        $this->krVoice = $krVoice;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getFaction(): ?string
+    {
+        return $this->faction;
+    }
+
+    public function setFaction(?string $faction): static
+    {
+        $this->faction = $faction;
 
         return $this;
     }

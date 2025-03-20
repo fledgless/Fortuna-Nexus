@@ -80,9 +80,12 @@ class CharacterSkill
     #[ORM\ManyToOne(inversedBy: 'skills')]
     private ?CharacterKit $characterKit = null;
 
+    #[ORM\ManyToOne(inversedBy: 'enhancedSkills')]
+    private ?CharacterEidolon $characterEidolon = null;
+
     public function __toString()
     {
-        $name = $this->characterKit + " - Skill - " + $this->name;
+        $name = $this->characterKit . " - " . $this->type . " - " . $this->name;
         return $name;
     }
 
@@ -351,6 +354,18 @@ class CharacterSkill
     public function setCharacterKit(?CharacterKit $characterKit): static
     {
         $this->characterKit = $characterKit;
+
+        return $this;
+    }
+
+    public function getCharacterEidolon(): ?CharacterEidolon
+    {
+        return $this->characterEidolon;
+    }
+
+    public function setCharacterEidolon(?CharacterEidolon $characterEidolon): static
+    {
+        $this->characterEidolon = $characterEidolon;
 
         return $this;
     }

@@ -1,20 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CharactersController!{% endblock %}
+{% block title %}Characters{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/camer/Projects/symfony-projects/hsr-project/src/Controller/CharactersController.php</code></li>
-        <li>Your template at <code>C:/Users/camer/Projects/symfony-projects/hsr-project/templates/characters/index.html.twig</code></li>
-    </ul>
-</div>
+    <h1>Characters</h1>
+    <div class="character-list list">
+        {% include "characters/character/list.html.twig" with { characters } %}
+    </div>
 {% endblock %}

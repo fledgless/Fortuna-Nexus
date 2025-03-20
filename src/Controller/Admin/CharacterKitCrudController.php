@@ -33,19 +33,19 @@ class CharacterKitCrudController extends AbstractCrudController
             yield IntegerField::new('betaVersion', 'Beta Version (only leaks)');
 
         yield FormField::addTab('Base stats');
-            yield IntegerField::new('baseHp');
-            yield IntegerField::new('baseAtk');
-            yield IntegerField::new('baseDef');
-            yield IntegerField::new('baseSpd');
+            yield NumberField::new('baseHp');
+            yield NumberField::new('baseAtk');
+            yield NumberField::new('baseDef');
+            yield NumberField::new('baseSpd');
 
         yield FormField::addTab('Substats');
             yield AssociationField::new('substats');
-            yield IntegerField::new('statOneValue', 'Stat 1');
-            yield IntegerField::new('statTwoValue', 'Stat 2');
-            yield IntegerField::new('statThreeValue', 'Stat 3');
+            yield NumberField::new('statOneValue', 'Stat 1');
+            yield NumberField::new('statTwoValue', 'Stat 2');
+            yield NumberField::new('statThreeValue', 'Stat 3');
 
         yield FormField::addTab('Traces');
-            yield TextField::new('levelOneValue');
+            yield TextField::new('levelOneTrace');
             yield TextField::new('ascensionTwoTrace');
             yield TextField::new('ascensionThreeTraceOne');
             yield Textfield::new('ascensionThreeTraceTwo');
@@ -58,29 +58,24 @@ class CharacterKitCrudController extends AbstractCrudController
         
         yield FormField::addTab('Main Trace 1');
             yield TextField::new('mainTraceOneName', 'Name');
-            yield TextareaField::new('mainTraceOneDesc', 'Description');
+            yield TextEditorField::new('mainTraceOneDesc', 'Description');
             yield ImageField::new('mainTraceOneFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
         
         yield FormField::addTab('Main Trace 2');
             yield TextField::new('mainTraceTwoName', 'Name');
-            yield TextareaField::new('mainTraceTwoDesc', 'Description');
+            yield TextEditorField::new('mainTraceTwoDesc', 'Description');
             yield ImageField::new('mainTraceTwoFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
         yield FormField::addTab('Main Trace 3');
             yield TextField::new('mainTraceThreeName', 'Name');
-            yield TextareaField::new('mainTraceThreeDesc', 'Description');
+            yield TextEditorField::new('mainTraceThreeDesc', 'Description');
             yield ImageField::new('mainTraceThreeFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
-        yield FormField::addTab('Technique');
-            yield TextField::new('techniqueName', 'Name');
-            yield TextareaField::new('techniqueDesc', 'Description');
-            yield ImageField::new('techniqueFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
-
         yield FormField::addTab('Skills');
-            yield CollectionField::new('skills');
+            yield AssociationField::new('skills');
 
         yield FormField::addTab('Eidolons');
-            yield CollectionField::new('eidolons');
+            yield AssociationField::new('eidolons');
 
         yield FormField::addTab('Memosprite');
             yield AssociationField::new('memosprite')->renderAsEmbeddedForm();

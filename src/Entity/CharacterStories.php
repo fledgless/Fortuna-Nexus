@@ -33,6 +33,12 @@ class CharacterStories
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $characterStoryPartFour = null;
 
+    public function __toString()
+    {
+        $name = $this->characterName . " - Character stories";
+        return $name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -38,11 +38,13 @@ class CharacterSkillCrudController extends AbstractCrudController
                 yield TextField::new('name')->setColumns(5);
                 yield AssociationField::new('characterKit')->setColumns(5);
                 yield BooleanField::new('enhanced', 'Enhanced?')->setColumns(2);
+            yield FormField::addRow();
                 yield ChoiceField::new('type')->setChoices([
                     "Basic ATK" => "Basic ATK",
                     "Skill" => "Skill",
                     "Ultimate" => "Ultimate",
                     "Talent" => "Talent",
+                    "Technique" => "Technique",
                 ])->setColumns(6);
                 yield ChoiceField::new('tag')->setChoices([
                     "AoE" => "AoE",
@@ -56,12 +58,16 @@ class CharacterSkillCrudController extends AbstractCrudController
                     "Summon" => "Summon",
                     "Support" => "Support"
                 ])->setColumns(6);
+            yield FormField::addRow();
                 yield IntegerField::new('energyGain')->setColumns(3)->hideOnIndex();
                 yield IntegerField::new('energyCost')->setColumns(3)->hideOnIndex();
                 yield IntegerField::new('breakMainTarget')->setColumns(3)->hideOnIndex();
                 yield IntegerField::new('breakAdjacentTargets')->setColumns(3)->hideOnIndex();
-                yield TextEditorField::new('descLevelOne', "Description (lvl 1)")->setColumns(7)->hideOnIndex();
-                yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]')->setColumns(5);
+            yield FormField::addColumn();
+                yield TextEditorField::new('descLevelOne', "Description (lvl 1)")->hideOnIndex();
+            yield FormField::addColumn();
+                yield ImageField::new('filename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+                yield AssociationField::new('characterEidolon')->hideOnIndex();
         
         yield FormField::addTab('Basic ATK');
             yield FormField::addColumn();

@@ -1,0 +1,26 @@
+<div class="mats-container">
+    <a href="#">
+        {% if mat.fourStarFilename %}
+            <div class="mat four-star">
+                <img src="/uploads/{{ mat.fourStarFilename }}" alt="">
+                <p>{{ mat.fourStarName }}</p>
+            </div>
+        {% endif %}
+    </a>
+    <a href="#">
+        {% if mat.threeStarFilename %}
+            <div class="mat three-star">
+                <img src="/uploads/{{ mat.threeStarFilename }}" alt="">
+                <p>{{ mat.threeStarName }}</p>
+            </div>
+        {% endif %}
+    </a>
+    <a href="#">
+        {% if mat.twoStarFilename %}
+            <div class="mat two-star">
+                <img src="/uploads/{{ mat.twoStarFilename }}" alt="">
+                <p>{{ mat.twoStarName }}</p>
+            </div>
+        {% endif %}
+    </a>
+</div>
