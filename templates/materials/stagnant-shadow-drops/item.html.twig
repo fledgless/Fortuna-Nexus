@@ -1,0 +1,8 @@
+<a href="#">
+    {% if mat.filename %}
+        <div class="mat four-star">
+            <img src="/uploads/{{ mat.filename }}" alt="">
+            <p>{{ mat.name }}</p>
+        </div>
+    {% endif %}
+</a>

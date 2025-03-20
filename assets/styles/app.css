@@ -551,7 +551,7 @@ main .s-container {
   font-size: 18px;
 }
 
-.character-show .substats .substat div:hover p, .character-show .character-asc-mats a:hover p {
+.character-show .substats .substat div:hover p, .character-show .character-asc-mats a:hover p, .materials section a:hover p {
   display: block;
   position: absolute;
   background-color: #282828;
@@ -662,7 +662,50 @@ main .s-container .lc-show {
   }
 }
 
-.list .item-character:hover {
+.materials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.materials section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.212);
+  padding: 10px;
+  margin: 20px;
+  width: 80%;
+}
+
+.materials section a {
+  font-size: 12px;
+  margin: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.materials section a p {
+  display: none;
+}
+
+.materials section .mats-container {
+  display: flex;
+  flex-direction: row;
+  margin: 2px;
+}
+
+.materials section a img {
+  height: 75px;
+  width: 75px;
+  margin: 5px;
+}
+
+.item-character:hover {
   font-family: DinProBold;
   transition: 0.4s;
 }
@@ -684,7 +727,7 @@ main .s-container .lc-show {
   background: #235789;
 }
 
-.ascmat:hover .two-star, .tracemat:hover .two-star {
+.list .two-star:hover {
   background: #3f6b4e;
 }
 
@@ -700,10 +743,10 @@ main .s-container .lc-show {
 
 .list .three-star, .three-star .active, .three-star-mat {
   background: rgb(52,35,137);
-  background: linear-gradient(180deg, rgba(52,35,137,1) 0%, rgba(35,87,137,1) 20%, rgba(36,104,170,1) 70%);
+  background: linear-gradient(180deg, rgba(52,35,137,1) 0%, rgba(36,104,170,1) 75%);
 }
 
-.two-star-mat {
+.list .two-star, .two-star-mat {
   background: rgb(80,107,63);
-  background: linear-gradient(180deg, rgba(80,107,63,1) 0%, rgba(63,107,78,1) 20%, rgba(54,139,83,1) 70%);
+  background: linear-gradient(180deg,rgba(63,107,78,1) 0%, rgba(54,139,83,1) 75%);
 }
