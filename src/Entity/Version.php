@@ -54,7 +54,8 @@ class Version
 
     public function __toString()
     {
-        return $this->name;
+        $name = strval($this->patch) . " - " . $this->name;
+        return $name;
     }
 
     public function getId(): ?int

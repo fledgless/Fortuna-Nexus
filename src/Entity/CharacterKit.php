@@ -104,15 +104,6 @@ class CharacterKit
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $levelEightyTrace = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $techniqueName = null;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $techniqueDesc = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $techniqueFilename = null;
-
     #[ORM\Column]
     private ?bool $leakedContent = null;
 
@@ -143,7 +134,7 @@ class CharacterKit
 
     public function __toString()
     {
-        $name = $this->characterName + " - Kit";
+        $name = $this->characterName . " - Kit";
         return $name;
     }
 
@@ -496,42 +487,6 @@ class CharacterKit
     public function setLevelEightyTrace(?string $levelEightyTrace): static
     {
         $this->levelEightyTrace = $levelEightyTrace;
-
-        return $this;
-    }
-
-    public function getTechniqueName(): ?string
-    {
-        return $this->techniqueName;
-    }
-
-    public function setTechniqueName(?string $techniqueName): static
-    {
-        $this->techniqueName = $techniqueName;
-
-        return $this;
-    }
-
-    public function getTechniqueDesc(): ?string
-    {
-        return $this->techniqueDesc;
-    }
-
-    public function setTechniqueDesc(?string $techniqueDesc): static
-    {
-        $this->techniqueDesc = $techniqueDesc;
-
-        return $this;
-    }
-
-    public function getTechniqueFilename(): ?string
-    {
-        return $this->techniqueFilename;
-    }
-
-    public function setTechniqueFilename(?string $techniqueFilename): static
-    {
-        $this->techniqueFilename = $techniqueFilename;
 
         return $this;
     }

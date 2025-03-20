@@ -1,0 +1,37 @@
+<div class="item-skill">
+    <div class="eidolon-skill-trace-container">
+        <img loading="lazy" src="/uploads/{{ skill.filename }}" alt="">
+        <div>
+            <h3>{{ skill.name }}</h3>
+            <div class="skill-type">
+                <p>
+                    {% if skill.enhanced is same as (true) %}
+                    Enhanced 
+                    {% endif %}
+                    {{ skill.type }} 
+                </p>
+                <p>|</p>
+                <p>{{ skill.tag }}</p>
+            </div>
+            <div class="skill-energy"> 
+                {% if skill.energyGain %}
+                    <p>Energy Gain: {{ skill.energyGain }}</p>
+                {% endif %}
+                {% if skill.energyCost %}
+                    <p>|</p>
+                    <p>Energy Cost: {{ skill.energyCost }}</p>
+                {% endif %}
+            </div>
+            <div class="skill-break">
+                {% if skill.breakMainTarget %}
+                    {% if skill.breakAdjacentTargets %}
+                        <p>Toughness reduction: {{ skill.breakMainTarget }} (main), {{ skill.breakAdjacentTargets }} (adjacent)</p>
+                    {% else %}
+                        <p>Toughness reduction: {{ skill.breakMainTarget }}</p>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div>{{ skill.descLevelOne|raw }}</div>
+        </div>
+    </div>
+</div>

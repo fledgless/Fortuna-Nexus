@@ -1,0 +1,3 @@
+{% for voiceline in character.voicelines|filter(voiceline => voiceline.category == "Combat") %}
+    {% include "characters/voicelines/item.html.twig" with { voiceline } %}
+{% endfor %}

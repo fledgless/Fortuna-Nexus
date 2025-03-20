@@ -1,0 +1,23 @@
+{% for eidolon in character.characterKit.eidolons|filter(eidolon => eidolon.number == 1) %}
+    {% include "characters/eidolons/item.html.twig" with { eidolon } %}
+{% endfor %}
+
+{% for eidolon in character.characterKit.eidolons|filter(eidolon => eidolon.number == 2) %}
+    {% include "characters/eidolons/item.html.twig" with { eidolon } %}
+{% endfor %}
+
+{% for eidolon in character.characterKit.eidolons|filter(eidolon => eidolon.number == 3) %}
+    {% include "characters/eidolons/item.html.twig" with { eidolon } %}
+{% endfor %}
+
+{% for eidolon in character.characterKit.eidolons|filter(eidolon => eidolon.number == 4) %}
+    {% include "characters/eidolons/item.html.twig" with { eidolon } %}
+{% endfor %}
+
+{% for eidolon in character.characterKit.eidolons|filter(eidolon => eidolon.number == 5) %}
+    {% include "characters/eidolons/item.html.twig" with { eidolon } %}
+{% endfor %}
+
+{% for eidolon in character.characterKit.eidolons|filter(eidolon => eidolon.number == 6) %}
+    {% include "characters/eidolons/item.html.twig" with { eidolon } %}
+{% endfor %}

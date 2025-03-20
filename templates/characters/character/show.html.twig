@@ -1,0 +1,212 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ character.name }}{% endblock %}
+
+{% block body %}
+        <div class="character-show {% if character.rarity == "4-star"%}four-star {% else %}five-star{% endif %}">
+            <div class="character-banner">
+                <img loading="lazy" src="/uploads/{{ character.miniatureFilename }}" alt="">
+                <div>
+                    <h1>{{ character.name }}</h1>
+                </div>
+            </div>
+            <div class="character-asc-mats">
+                <h2>Materials</h2>
+                {% include "characters/materials/item.html.twig" %}
+            </div>
+            <div class="character-content">
+                <nav>
+                    <ul class="character-nav">
+                        <li class="character-nav-link active" id="toggle-skills">Skills</li>
+                        {% if character.path.name == "Remembrance" %}<li class="character-nav-link" id="toggle-memosprite">Memosprite</li>{% endif %}
+                        <li class="character-nav-link" id="toggle-traces">Traces</li>
+                        <li class="character-nav-link" id="toggle-eidolons">Eidolons</li>
+                        <li class="character-nav-link" id="toggle-voicelines">Voicelines</li>
+                        <li class="character-nav-link" id="toggle-stories">Character stories</li>
+                    </ul>
+                </nav>
+                <section class="open" id="skills">
+                    <div class="content">
+                        {% if character.characterKit and not character.characterKit.skills is empty  %}
+                            <div class="skills">
+                                {% include "characters/skills/list.html.twig" %}
+                            </div>
+                        {% else %}
+                            <p>Skills to be added.</p>
+                        {% endif %}                      
+                    </div>
+                </section>
+                {% if character.path.name == "Remembrance" %}
+                    <section>
+                        <div class="content">
+                            {% if character.characterKit.memosprite  %}
+                                <div class="memosprite">
+                                    <h2>{{ character.characterKit.memosprite.name }}</h2>
+                                    {% if not character.characterKit.memosprite.skills is empty %}
+                                        {% include "characters/memoskills/list.html.twig" %}
+                                    {% else %}
+                                        <p>Memosprite's skills to be added.</p>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <p>Memosprite to be added.</p>
+                            {% endif %}                      
+                        </div>
+                    </section>
+                {% endif %}
+                <section id="traces">
+                    <div class="content">
+                        {% if character.characterKit %}
+                            <div class="traces">
+                                {% include "characters/traces/item.html.twig" %}
+                            </div>
+                        {% else %}
+                            <p>Traces to be added.</p>
+                        {% endif %}                        
+                    </div>
+                </section>
+                <section id="eidolons">
+                    <div class="content">
+                        {% if character.characterKit and not character.characterKit.eidolons is empty %}
+                            <div class="eidolons">
+                                {% include "characters/eidolons/list.html.twig" %}
+                            </div>
+                        {% else %}
+                            <p>Eidolons to be added.</p>
+                        {% endif %}
+                    </div>
+                </section>
+                <section id="voicelines">
+                    <div class="content">
+                        <ul>
+                            <li class="toggle-voicelines active" id="toggle-exploration">Exploration</li>
+                            <li class="toggle-voicelines" id="toggle-combat">Combat</li>
+                        </ul>
+                        {% if not character.voicelines is empty %}
+                            <div class="voicelines open" id="exploration">
+                                {% include "characters/voicelines/voiceline-list.html.twig" %}
+                            </div>
+                            <div class="voicelines" id="combat">
+                                {% include "characters/voicelines/combat-list.html.twig" %}
+                            </div>
+                        {% else %}
+                            <p>Voicelines to be added.</p>
+                        {% endif %}
+                    </div>
+                </section> 
+                <section id="stories">
+                    <div class="content">
+                        {% if character.stories %}
+                            {% include "characters/stories/item.html.twig" %}
+                        {% else %}
+                            <p>Character stories to be added.</p>
+                        {% endif %}
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    <script>
+        let toggleSkills = document.querySelector('#toggle-skills'),
+            toggleTraces = document.querySelector('#toggle-traces'),
+            toggleEidolons = document.querySelector('#toggle-eidolons'),
+            toggleVoicelines = document.querySelector('#toggle-voicelines'),
+            toggleStories = document.querySelector('#toggle-stories'),
+            allToggle = document.querySelectorAll('.character-nav-link');
+
+        let skills = document.querySelector('#skills'),
+            traces = document.querySelector('#traces'),
+            eidolons = document.querySelector('#eidolons'),
+            voicelines = document.querySelector('#voicelines'),
+            stories = document.querySelector('#stories'),
+            sections = document.querySelectorAll('section');
+
+            toggleSkills.addEventListener("click", () => {
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
+                skills.classList.add('open');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
+                toggleSkills.classList.add('active');
+            })
+
+            toggleTraces.addEventListener("click", () => {
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
+                traces.classList.add('open');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
+                toggleTraces.classList.add('active');
+            })
+            
+            toggleEidolons.addEventListener("click", () => {
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
+                eidolons.classList.add('open');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
+                toggleEidolons.classList.add('active');
+            })
+            
+            toggleVoicelines.addEventListener('click', () => {
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
+                voicelines.classList.add('open');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
+                toggleVoicelines.classList.add('active');
+            })
+            
+            toggleStories.addEventListener('click', () => {
+                sections.forEach(section => {
+                    section.classList.remove('open');
+                })
+                stories.classList.add('open');
+                allToggle.forEach(toggle => {
+                    toggle.classList.remove('active');
+                })
+                toggleStories.classList.add('active');
+            })
+
+            let toggleExploration = document.querySelector('#toggle-exploration'),
+                toggleCombat = document.querySelector('#toggle-combat'),
+                exploration = document.querySelector('#exploration'),
+                combat = document.querySelector('#combat');
+
+            toggleExploration.addEventListener('click', () => {
+                exploration.classList.add('open');
+                combat.classList.remove('open');
+                toggleExploration.classList.add('active');
+                toggleCombat.classList.remove('active');
+            })
+
+            toggleCombat.addEventListener('click', () => {
+                combat.classList.add('open');
+                exploration.classList.remove('open');
+                toggleCombat.classList.add('active');
+                toggleExploration.classList.remove('active');
+            })
+
+            let voicelineList = document.querySelectorAll(".item-voiceline");
+            for (let i = 0; i < voicelineList.length; i++) {
+                voicelineList[i].addEventListener('click', () => {
+                    voicelineList[i].classList.toggle('open');
+                })
+            }
+
+            let storyList = document.querySelectorAll(".item-story");
+            for (let i = 0; i < storyList.length; i++) {
+                storyList[i].addEventListener('click', () => {
+                    storyList[i].classList.toggle('open');
+                })
+            }
+    </script>
+{% endblock %}

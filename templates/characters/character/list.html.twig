@@ -1,0 +1,5 @@
+{% for character in characters | sort((a, b) => a.name <=> b.name) %}
+    {% if character.announced == 1 %}
+        {% include "characters/character/item.html.twig" with { character } %}
+    {% endif %}
+{% endfor %}

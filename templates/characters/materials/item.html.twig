@@ -1,0 +1,102 @@
+<div>
+    <a href="#" id="mat" class="three-star-mat">
+        <img loading="lazy" src="/images/Item_Credit.webp" alt="">
+        <p>Credit</p>
+    </a>
+    <a href="#" id="mat" class="four-star-mat">
+        <img loading="lazy" src="/images/Item_Travelers_Guide.webp" alt="">
+        <p>Traveler's Guide</p>
+    </a>
+    <a href="#" id="mat" class="five-star-mat">
+        <img loading="lazy" src="/images/Item_Tracks_of_Destiny.webp" alt="">
+        <p>Tracks of Destiny</p>
+    </a>
+</div>
+<div class="ascension-mats">
+    <div class="enemy-drops">
+        {% if character.enemyDrops %}
+            <a href="#" id="mat" class="two-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.enemyDrops.twoStarFilename }}" alt="">
+                <p>{{ character.enemyDrops.twoStarName }}</p>
+            </a>
+            <a href="#" id="mat" class="three-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.enemyDrops.threeStarFilename }}" alt="">
+                <p>{{ character.enemyDrops.threeStarName }}</p>
+            </a>
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.enemyDrops.fourStarFilename }}" alt="">
+                <p>{{ character.enemyDrops.fourStarName }}</p>
+            </a>
+        {% else %}
+            <a href="#" id="mat" class="two-star-mat">
+                <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
+                <p>TBA</p>
+            </a>
+            <a href="#" id="mat" class="three-star-mat">
+                <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
+                <p>TBA</p>
+            </a>
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
+                <p>TBA</p>
+            </a>
+        {% endif %}
+    </div>
+    <div class="stagnant-shadow-drop">
+        {% if character.stagnantShadowDrop %}
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.stagnantShadowDrop.filename }}" alt="">
+                <p>{{ character.stagnantShadowDrop.name }}</p>
+            </a>
+        {% else %}
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
+                <p>TBA</p>
+            </a>
+        {% endif %}
+    </div>
+</div>
+<div class="traces-mats">
+    <div class="path-materials">
+        {% if character.pathMaterials %}
+            <a href="#" id="mat" class="two-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.pathMaterials.twoStarFilename }}" alt="">
+                <p>{{ character.pathMaterials.twoStarName }}</p>
+            </a>
+            <a href="#" id="mat" class="three-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.pathMaterials.threeStarFilename }}" alt="">
+                <p>{{ character.pathMaterials.threeStarName }}</p>
+            </a>
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.pathMaterials.fourStarFilename }}" alt="">
+                <p>{{ character.pathMaterials.fourStarName }}</p>
+            </a>
+        {% else %}
+            <a href="#" id="mat" class="two-star-mat">
+                <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
+                <p>TBA</p>
+            </a>
+            <a href="#" id="mat" class="three-star-mat">
+                <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
+                <p>TBA</p>
+            </a>
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
+                <p>TBA</p>
+            </a>
+        {% endif %}
+    </div>
+    <div class="echo-drop">
+        {% if character.echoOfWarDrop %}
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.echoOfWarDrop.filename }}" alt="">
+                <p>{{ character.echoOfWarDrop.name }}</p>
+            </a>
+        {% else %}
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
+                <p>TBA</p>
+            </a>
+        {% endif %}
+    </div>
+</div>

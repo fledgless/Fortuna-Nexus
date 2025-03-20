@@ -66,9 +66,12 @@ class MemospriteSkill
     #[ORM\JoinColumn(nullable: false)]
     private ?Memosprite $memosprite = null;
 
+    #[ORM\ManyToOne(inversedBy: 'enhancedMemoSkills')]
+    private ?CharacterEidolon $characterEidolon = null;
+
     public function __toString()
     {
-        $name = $this->memosprite + " - Skill - " + $this->name;
+        $name = $this->memosprite . " - " . $this->type . " - " . $this->name;
         return $name;
     }
 
@@ -275,6 +278,18 @@ class MemospriteSkill
     public function setMemosprite(?Memosprite $memosprite): static
     {
         $this->memosprite = $memosprite;
+
+        return $this;
+    }
+
+    public function getCharacterEidolon(): ?CharacterEidolon
+    {
+        return $this->characterEidolon;
+    }
+
+    public function setCharacterEidolon(?CharacterEidolon $characterEidolon): static
+    {
+        $this->characterEidolon = $characterEidolon;
 
         return $this;
     }

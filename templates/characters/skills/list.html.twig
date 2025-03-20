@@ -1,0 +1,19 @@
+{% for skill in character.characterKit.skills|filter(skill => skill.type == "Basic ATK") %}
+    {% include "characters/skills/item.html.twig" with { skill } %}
+{% endfor %}
+
+{% for skill in character.characterKit.skills|filter(skill => skill.type == "Skill") %}
+    {% include "characters/skills/item.html.twig" with { skill } %}
+{% endfor %}
+
+{% for skill in character.characterKit.skills|filter(skill => skill.type == "Ultimate") %}
+    {% include "characters/skills/item.html.twig" with { skill } %}
+{% endfor %}
+
+{% for skill in character.characterKit.skills|filter(skill => skill.type == "Talent") %}
+    {% include "characters/skills/item.html.twig" with { skill } %}
+{% endfor %}
+
+{% for skill in character.characterKit.skills|filter(skill => skill.type == "Technique") %}
+    {% include "characters/skills/item.html.twig" with { skill } %}
+{% endfor %}

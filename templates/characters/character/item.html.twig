@@ -1,0 +1,24 @@
+{% set character_show = path('character_show', { slug: character.slug }) %}
+
+{% if character.iconFilename %} 
+    <div class="item-character {% if character.rarity == "4-star" %}four-star {% else %}five-star{% endif %}">
+        <a href="{{ character_show }}">
+            <div class="character-name">
+                <p>{{ character.name }}</p>
+            </div>
+            <div class="character-path-type">
+                <img loading="lazy" class="character-path" src="/uploads/{{ character.path.pathFilename }}" alt="">
+                <img loading="lazy" class="character-type" src="/uploads/{{ character.type.typeFilename }}" alt="">
+            </div>
+            {% if character.released == 0 and character.announced == 1 %}
+                <div class="upcoming">Upcoming</div>
+            {% endif %}
+            {% if character.released == 1 and character.releaseVersion.patch == 3.1 %}
+                <div class="new">New in {{ character.releaseVersion.patch }}</div>
+            {% endif %}
+            <div class="icon">
+                <img loading="lazy" class="character-icon" src="/uploads/{{ character.iconFilename }}" alt="">
+            </div>
+        </a>
+    </div>
+{% endif %}
