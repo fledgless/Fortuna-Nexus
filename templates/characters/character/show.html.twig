@@ -18,6 +18,7 @@
                 <nav>
                     <ul class="character-nav">
                         <li class="character-nav-link active" id="toggle-skills">Skills</li>
+                        {% if character.path.name == "Remembrance" %}<li class="character-nav-link" id="toggle-memosprite">Memosprite</li>{% endif %}
                         <li class="character-nav-link" id="toggle-traces">Traces</li>
                         <li class="character-nav-link" id="toggle-eidolons">Eidolons</li>
                         <li class="character-nav-link" id="toggle-voicelines">Voicelines</li>
@@ -35,6 +36,24 @@
                         {% endif %}                      
                     </div>
                 </section>
+                {% if character.path.name == "Remembrance" %}
+                    <section>
+                        <div class="content">
+                            {% if character.characterKit.memosprite  %}
+                                <div class="memosprite">
+                                    <h2>{{ character.characterKit.memosprite.name }}</h2>
+                                    {% if not character.characterKit.memosprite.skills is empty %}
+                                        {% include "characters/memoskills/list.html.twig" %}
+                                    {% else %}
+                                        <p>Memosprite's skills to be added.</p>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <p>Memosprite to be added.</p>
+                            {% endif %}                      
+                        </div>
+                    </section>
+                {% endif %}
                 <section id="traces">
                     <div class="content">
                         {% if character.characterKit %}

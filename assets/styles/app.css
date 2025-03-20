@@ -110,7 +110,6 @@ h1 {
   background: linear-gradient(129deg, rgba(219,194,145,1) 0%, rgba(147,116,56,1) 95%);
   color: #0f0e0e;
   padding: 10px 30px;
-  border-radius: 3px;
 }
 
 h2 {
@@ -374,7 +373,6 @@ main .s-container {
   height: 100px;
   align-items: center;
   justify-content: space-between;
-  border-radius: 20px;
   margin-bottom: 20px;
   max-width: 800px;
 }
@@ -415,7 +413,7 @@ main .s-container {
   background: rgba(0, 0, 0, 0.212);
   padding: 20px;
   align-items: center;
-  width: 45%;
+  width: 250px;
 }
 
 .character-show .character-asc-mats div {
@@ -438,6 +436,7 @@ main .s-container {
 .character-show .character-content {
   margin: 20px auto 0px auto;
   border-radius: 5px;
+  width: 100%;
 }
 
 .character-show ul, .lc-show ul {

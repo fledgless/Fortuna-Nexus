@@ -43,21 +43,21 @@ class CharacterCrudController extends AbstractCrudController
                     ]);
                 yield ChoiceField::new('faction')->setChoices([
 
-                ]);
+                ])->hideOnIndex();
 
             yield FormField::addColumn();
                 yield SlugField::new('slug')->setTargetFieldName('name')->hideOnIndex();
-                yield TextField::new('engVoice');
-                yield TextField::new('jpVoice');
-                yield TextField::new('cnVoice');
-                yield TextField::new('krVoice');
+                yield TextField::new('engVoice')->hideOnIndex();
+                yield TextField::new('jpVoice')->hideOnIndex();
+                yield TextField::new('cnVoice')->hideOnIndex();
+                yield TextField::new('krVoice')->hideOnIndex();
             
             yield FormField::addColumn();
                 yield AssociationField::new('releaseVersion');
                 yield DateField::new('releaseDate')->hideOnIndex();
                 yield BooleanField::new('announced', 'Announced?')->hideOnIndex();
                 yield BooleanField::new('released', 'Released?');
-                yield TextEditorField::new('description');
+                yield TextEditorField::new('description')->hideOnIndex();
 
         yield FormField::addTab('Media'); 
             yield ImageField::new('iconFilename', 'Icon')->setBasePath($uploadDir)->setUploadDir($mediaDir)->setUploadedFileNamePattern('[slug]-[uuid].[extension]');

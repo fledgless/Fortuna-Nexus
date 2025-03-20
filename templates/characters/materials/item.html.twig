@@ -15,20 +15,20 @@
 <div class="ascension-mats">
     <div class="enemy-drops">
         {% if character.enemyDrops %}
-            <a href="#" id="mat" class="four-star-mat">
-                <img loading="lazy" src="/uploads/{{ character.enemyDrops.fourStarFilename }}" alt="">
-                <p>{{ character.enemyDrops.fourStarName }}</p>
+            <a href="#" id="mat" class="two-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.enemyDrops.twoStarFilename }}" alt="">
+                <p>{{ character.enemyDrops.twoStarName }}</p>
             </a>
             <a href="#" id="mat" class="three-star-mat">
                 <img loading="lazy" src="/uploads/{{ character.enemyDrops.threeStarFilename }}" alt="">
                 <p>{{ character.enemyDrops.threeStarName }}</p>
             </a>
-            <a href="#" id="mat" class="two-star-mat">
-                <img loading="lazy" src="/uploads/{{ character.enemyDrops.twoStarFilename }}" alt="">
-                <p>{{ character.enemyDrops.twoStarName }}</p>
-                </a>
-        {% else %}
             <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.enemyDrops.fourStarFilename }}" alt="">
+                <p>{{ character.enemyDrops.fourStarName }}</p>
+            </a>
+        {% else %}
+            <a href="#" id="mat" class="two-star-mat">
                 <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
                 <p>TBA</p>
             </a>
@@ -36,7 +36,7 @@
                 <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
                 <p>TBA</p>
             </a>
-            <a href="#" id="mat" class="two-star-mat">
+            <a href="#" id="mat" class="four-star-mat">
                 <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
                 <p>TBA</p>
             </a>
@@ -59,20 +59,20 @@
 <div class="traces-mats">
     <div class="path-materials">
         {% if character.pathMaterials %}
-            <a href="#" id="mat" class="four-star-mat">
-                <img loading="lazy" src="/uploads/{{ character.pathMaterials.fourStarFilename }}" alt="">
-                <p>{{ character.pathMaterials.fourStarName }}</p>
+            <a href="#" id="mat" class="two-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.pathMaterials.twoStarFilename }}" alt="">
+                <p>{{ character.pathMaterials.twoStarName }}</p>
             </a>
             <a href="#" id="mat" class="three-star-mat">
                 <img loading="lazy" src="/uploads/{{ character.pathMaterials.threeStarFilename }}" alt="">
                 <p>{{ character.pathMaterials.threeStarName }}</p>
             </a>
-            <a href="#" id="mat" class="two-star-mat">
-                <img loading="lazy" src="/uploads/{{ character.pathMaterials.twoStarFilename }}" alt="">
-                <p>{{ character.pathMaterials.twoStarName }}</p>
+            <a href="#" id="mat" class="four-star-mat">
+                <img loading="lazy" src="/uploads/{{ character.pathMaterials.fourStarFilename }}" alt="">
+                <p>{{ character.pathMaterials.fourStarName }}</p>
             </a>
         {% else %}
-            <a href="#" id="mat" class="four-star-mat">
+            <a href="#" id="mat" class="two-star-mat">
                 <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
                 <p>TBA</p>
             </a>
@@ -80,7 +80,7 @@
                 <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
                 <p>TBA</p>
             </a>
-            <a href="#" id="mat" class="two-star-mat">
+            <a href="#" id="mat" class="four-star-mat">
                 <img loading="lazy" src="/images/Item_Unknown.webp" alt="">
                 <p>TBA</p>
             </a>

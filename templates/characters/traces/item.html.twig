@@ -1,6 +1,6 @@
 <div class="item-traces">
         <div class="eidolon-skill-trace-container">
-            <img src="/uploads/{{ character.characterKit.mainTraceOneFilename }}" alt="">
+            <img loading="lazy" src="/uploads/{{ character.characterKit.mainTraceOneFilename }}" alt="">
             <div>
                 <h4>Main Trace 1</h4>
                 <h3>{{ character.characterKit.mainTraceOneName }}</h3>
@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="eidolon-skill-trace-container">
-            <img src="/uploads/{{ character.characterKit.mainTraceTwoFilename }}" alt="">
+            <img loading="lazy" src="/uploads/{{ character.characterKit.mainTraceTwoFilename }}" alt="">
             <div>
                 <h4>Main Trace 2</h4>
                 <h3>{{ character.characterKit.mainTraceTwoName }}</h3>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="eidolon-skill-trace-container">
-            <img src="/uploads/{{ character.characterKit.mainTraceThreeFilename }}" alt="">
+            <img loading="lazy" src="/uploads/{{ character.characterKit.mainTraceThreeFilename }}" alt="">
             <div>
                 <h4>Main Trace 3</h4>
                 <h3>{{ character.characterKit.mainTraceThreeName }}</h3>
@@ -26,21 +26,21 @@
     <div class="substats">
         <div class="substat">
             <div>
-                <img src="/uploads/{{ character.characterKit.substats[0].filename }}" alt="">
+                <img loading="lazy" src="/uploads/{{ character.characterKit.substats[0].filename }}" alt="">
                 <p>{{ character.characterKit.substats|slice(0, 1)|join('') }}</p>
             </div>
             <p>{{ character.characterKit.statOneValue }}{% if not character.characterKit.substats|slice(0, 1)|join('') is same as 'SPD' %}%{% endif %}</p>
         </div>
         <div class="substat">
             <div>
-                <img src="/uploads/{{ character.characterKit.substats[1].filename }}" alt="">
+                <img loading="lazy" src="/uploads/{{ character.characterKit.substats[1].filename }}" alt="">
                 <p>{{ character.characterKit.substats|slice(1, 1)|join('') }}</p>
             </div>
             <p>{{ character.characterKit.statTwoValue }}{% if not character.characterKit.substats|slice(1, 1)|join('') is same as 'SPD' %}%{% endif %}</p>
         </div>
         <div class="substat">
             <div>
-                <img src="/uploads/{{ character.characterKit.substats[2].filename }}" alt="">
+                <img loading="lazy" src="/uploads/{{ character.characterKit.substats[2].filename }}" alt="">
                 <p>{{ character.characterKit.substats|slice(2, 1)|join('') }}</p>
             </div>
             <p>{{ character.characterKit.statThreeValue }}{% if not character.characterKit.substats|slice(2, 1)|join('') is same as 'SPD' %}%{% endif %}</p>
