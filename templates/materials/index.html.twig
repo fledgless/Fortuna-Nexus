@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Materials{% endblock %}
+
+{% block body %}
+    <h1>Materials</h1>
+    <div class="materials">
+        <h2>Enemy drops</h2>
+        <section class="materials-list" id="enemy-drops">
+            {% include "materials/enemy-drops/list.html.twig" with { enemyDrops } %}
+        </section>
+        <h2>Stagnant Shadow drops</h2>
+        <section class="materials-list" id="stagnant-shadow-drops">
+            {% include "materials/stagnant-shadow-drops/list.html.twig" with { stagnantShadowDrops } %}
+        </section>
+        <h2>Path materials</h2>
+        <section class="materials-list" id="path-materials">
+            {% include "materials/path-materials/list.html.twig" with { pathMaterials } %}
+        </section>
+        <h2>Echo of War drops</h2>
+        <section class="materials-list" id="echo-of-war-drops">
+            {% include "materials/echo-of-war-drops/list.html.twig" with { echoOfWarDrops } %}
+        </section>
+    </div>
+{% endblock %}
