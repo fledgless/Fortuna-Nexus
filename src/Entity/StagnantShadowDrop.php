@@ -46,7 +46,8 @@ class StagnantShadowDrop
 
     public function __toString()
     {
-        return $this->name;
+        $name = $this->type . " - " . $this->name;
+        return $name;
     }
 
     public function getId(): ?int
