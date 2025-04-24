@@ -59,6 +59,9 @@ class Character
     #[ORM\OneToOne(mappedBy: 'characterName', cascade: ['persist', 'remove'])]
     private ?CharacterKit $characterKit = null;
 
+    #[ORM\OneToOne(mappedBy: 'characterName', cascade: ['persist', 'remove'])]
+    private ?CharacterBuild $characterBuild = null;
+
     /**
      * @var Collection<int, CharacterMedia>
      */
