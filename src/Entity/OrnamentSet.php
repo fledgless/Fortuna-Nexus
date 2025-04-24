@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrnamentSetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -55,6 +57,17 @@ class OrnamentSet
 
     #[ORM\Column]
     private ?bool $released = null;
+
+    /**
+     * @var Collection<int, RecommendedOrnamentSet>
+     */
+    #[ORM\OneToMany(targetEntity: RecommendedOrnamentSet::class, mappedBy: 'ornamentSet')]
+    private Collection $recommendedCharacters;
+
+    public function __construct()
+    {
+        $this->recommendedCharacters = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -225,6 +238,36 @@ class OrnamentSet
     public function setReleased(?bool $released): static
     {
         $this->released = $released;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RecommendedOrnamentSet>
+     */
+    public function getRecommendedCharacters(): Collection
+    {
+        return $this->recommendedCharacters;
+    }
+
+    public function addRecommendedCharacter(RecommendedOrnamentSet $recommendedCharacter): static
+    {
+        if (!$this->recommendedCharacters->contains($recommendedCharacter)) {
+            $this->recommendedCharacters->add($recommendedCharacter);
+            $recommendedCharacter->setOrnamentSet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecommendedCharacter(RecommendedOrnamentSet $recommendedCharacter): static
+    {
+        if ($this->recommendedCharacters->removeElement($recommendedCharacter)) {
+            // set the owning side to null (unless already changed)
+            if ($recommendedCharacter->getOrnamentSet() === $this) {
+                $recommendedCharacter->setOrnamentSet(null);
+            }
+        }
 
         return $this;
     }
