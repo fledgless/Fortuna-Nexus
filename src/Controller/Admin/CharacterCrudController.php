@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Character;
+use App\Repository\PathMaterialsRepository;
+use App\Repository\StagnantShadowDropRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Asset;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -67,8 +69,14 @@ class CharacterCrudController extends AbstractCrudController
 
         yield FormField::addTab('Materials');
             yield AssociationField::new('enemyDrops')->hideOnIndex();
-            yield AssociationField::new('stagnantShadowDrop')->hideOnIndex();
-            yield AssociationField::new('pathMaterials')->hideOnIndex();
+            yield AssociationField::new('stagnantShadowDrop')->hideOnIndex()->setFormTypeOption('query_builder', function (StagnantShadowDropRepository $stagnantShadowDropRepo) {
+                return $stagnantShadowDropRepo->createQueryBuilder('s')
+                    ->orderBy('s.type, s.id', 'ASC');
+            });
+            yield AssociationField::new('pathMaterials')->hideOnIndex()->setFormTypeOption('query_builder', function (PathMaterialsRepository $pathMaterialsRepo) {
+                return $pathMaterialsRepo->createQueryBuilder('s')
+                    ->orderBy('s.path', 'ASC');
+            });
             yield AssociationField::new('echoOfWarDrop')->hideOnIndex();
 
         yield FormField::addTab('Kit');

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\CharacterRepository;
+use App\Repository\LightConeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -10,22 +10,22 @@ use Symfony\Component\Routing\Attribute\Route;
 final class LightConesController extends AbstractController
 {
     #[Route('/light-cones', name: 'app_light_cones')]
-    public function index(): Response
+    public function index(LightConeRepository $lightConeRepo): Response
     {
         return $this->render('light_cones/index.html.twig', [
-            'controller_name' => 'LightConesController',
+            'light_cones' => $lightConeRepo->findAll(),
         ]);
     }
 
-    #[Route('/characters/{slug}', name: 'character_show', methods: ['GET'])]
-    public function show(string $slug, CharacterRepository $characterRepo): Response
+    #[Route('/light-cones/{slug}', name: 'light_cone_show', methods: ['GET'])]
+    public function show(string $slug, LightConeRepository $lightConeRepo): Response
     {
-        $character = $characterRepo->findOneBy(['slug' => $slug]);
-        if (!$character) {
-            return $this->redirectToRoute('app_characters');
+        $lightCone = $lightConeRepo->findOneBy(['slug' => $slug]);
+        if (!$lightCone) {
+            return $this->redirectToRoute('app_light_cones');
         } else {
-            return $this->render('characters/character/show.html.twig', [
-                'character' => $character
+            return $this->render('light_cones/light_cone/show.html.twig', [
+                'light_cone' => $lightCone
             ]);
         }
     }

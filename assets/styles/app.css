@@ -79,12 +79,35 @@ header {
     width: 100px;
 }
 
+header:hover {
+  width: 225px;
+  transition: 0.5s;
+}
+
+.logo.small {
+  height: 100px;
+}
+
+.logo.large {
+  display: none;
+}
+
+header:hover .logo.large {
+  display: block;
+  width: 200px;
+}
+
+header:hover .logo.small {
+  display: none;
+}
+
 header, footer {
     background-color: #0f0e0e;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    z-index: 1;
 }
   
 footer {
@@ -122,11 +145,14 @@ h3 {
 }
 
 .five-star h3, .five-star .substats .substat p, .five-star strong  {
-  color: rgb(201,106,106);
+  color: rgba(139, 81, 75, 1);
+  text-shadow: 1px 1px 5px black;
+  
 }
 
 .four-star h3, .four-star .substats .substat p, .four-star strong {
-  color: rgba(60,59,98,1);
+  color: rgb(46 45 87);
+  text-shadow: 1px 1px 5px black;
 }
 
 h4 {
@@ -188,15 +214,13 @@ header .hamburger i {
   margin-top: 12px;
 }
 
-header nav {
+header nav .main-nav {
+  overflow: hidden;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin: 30px 0px;
-}
-
-header nav .main-nav {
-  overflow: hidden;
+  flex-direction: column;
 }
 
 header nav p {
@@ -216,11 +240,21 @@ header nav .main-nav li a {
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  transition: 0.4s;
+  transition: 0.1s;
 }
 
 header nav .main-nav li a img {
   height: 50px;
+}
+
+header nav .main-nav li a p {
+  display: none;
+}
+
+header:hover nav .main-nav li a p {
+  display: block;
+  width: 100px;
+  text-align: center;
 }
 
 .sign-in-form, .sign-in-form div, .register form, .register form div {
@@ -267,6 +301,7 @@ header nav .main-nav li a img {
   transition: 0.4s;
   margin: 2px;
   overflow: hidden;
+  z-index: 0;
 }
 
 .lc-list .item-lc {
@@ -298,14 +333,17 @@ header nav .main-nav li a img {
 }
 
 .character-name, .lc-name {
-  max-width: 105px;
+  max-width: 120px;
+  max-height: 20px;
+  display: flex;
+  align-items: center;
   position: absolute;
   padding: 5px 10px;
-  backdrop-filter: blur(1px);
   margin-top: 140px;
   border-radius: 30px;
-  text-shadow: -2px 2px 3px #000000;
+  text-shadow: 1px 1px 10px #000, -1px 1px 10px #000, -1px -1px 10px #000, 1px -1px 10px #000;
   line-height: 1;
+  font-family: DinProBold;
 }
 
 .lc-name {
@@ -316,7 +354,7 @@ header nav .main-nav li a img {
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .character-list .item-character a .character-icon, .lc-list .item-lc a .lc-icon {
@@ -425,7 +463,7 @@ main .s-container {
   width: 50px;
 }
 
-#mat {
+.mat {
   margin: 2px;
   height: 50px;
   width: 50px;
@@ -711,14 +749,14 @@ main .s-container .lc-show {
 }
 
 .list .five-star:hover, .five-star .character-nav-link:hover {
-  background: rgb(201,131,98);
+  background: rgba(205, 165, 104, 1);
 }
 
 .list .four-star:hover, .four-star .superimposition-toggle:hover,
 .four-star .character-nav-link:hover,
 .ascmat:hover .four-star, .tracemat:hover .four-star,
 .bossmat:hover, .echomat:hover {
-  background: rgb(79,59,94);
+  background: rgba(104, 80, 141, 1);
 }
 
 .list .three-star:hover,
@@ -732,13 +770,11 @@ main .s-container .lc-show {
 }
 
 .list .five-star, .five-star .character-nav .active, .five-star .character-banner, .five-star-mat {
-  background: rgb(201,106,106);
-  background: linear-gradient(180deg, rgba(201,106,106,1) 0%, rgb(201, 156, 89) 75%);
+  background: linear-gradient(180deg, rgba(139, 81, 75, 1) 0%, rgba(171, 121, 89, 1) 33%, rgba(205, 165, 104, 1) 75%);
 }
 
 .list .four-star, .four-star .character-banner, .four-star .active, .four-star-mat {
-  background: rgb(60,59,98);
-  background: linear-gradient(180deg, rgba(60,59,98,1) 0%, rgba(98,59,90,1) 75%);
+  background: linear-gradient(180deg, rgb(46 45 87) 0%, rgba(94, 73, 145, 1) 33%, rgba(104, 80, 141, 1) 75%);
 }
 
 .list .three-star, .three-star .active, .three-star-mat {

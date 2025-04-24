@@ -65,7 +65,8 @@ class PathMaterials
 
     public function __toString()
     {
-        return $this->fourStarName;
+        $name = $this->path . " - " . $this->fourStarName;
+        return $name;
     }
 
     public function getId(): ?int
