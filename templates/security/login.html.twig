@@ -3,7 +3,7 @@
 {% block title %}Log in{% endblock %}
 
 {% block body %}
-    <form method="post">
+    <form action={{ path('app_login') }} method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -27,6 +27,9 @@
             
             <input type="hidden" name="_csrf_token"
                value="{{ csrf_token('authenticate') }}">
+
+            {{ dump(app.session) }}
+
 
         {#
             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
