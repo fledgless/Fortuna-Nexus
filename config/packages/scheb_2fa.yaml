@@ -9,3 +9,12 @@ scheb_two_factor:
         enabled: true
         sender_email: no-reply@fortuna-nexus.com
         sender_name: Fortuna Nexus
+    trusted_device:
+         enabled: true                 # If the trusted device feature should be enabled
+        lifetime: 5184000              # Lifetime of the trusted device token
+        extend_lifetime: false         # Automatically extend lifetime of the trusted cookie on re-login
+        cookie_name: trusted_device    # Name of the trusted device cookie
+        cookie_secure: false           # true|false|auto Set the 'Secure' (HTTPS Only) flag on the trusted device cookie
+        cookie_same_site: "lax"        # The same-site option of the cookie, can be "lax", "strict" or null
+        cookie_path: "/"  
+        key: '%env(APP_SECRET)%'  # ← This is the important part             # Path to use when setting the cookie

@@ -28,6 +28,11 @@ security:
                 # https://symfony.com/doc/current/security/two-factor-authentication.html#two-factor-authentication
                 auth_form_path: 2fa_login    
                 check_path: 2fa_login_check
+                trusted_parameter_name: _trusted      # Name of the parameter for the trusted device option 
+            remember_me:
+                secret: '%kernel.secret%' # Uses the APP_SECRET from .env.local
+                lifetime: 5184000         # Lifetime of the "remember me" cookie in seconds (60 days)
+                path: '/'                 # Path for which the cookie is valid
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
