@@ -1,0 +1,125 @@
+@startuml UseCases
+left to right direction
+skinparam actorStyle awesome
+
+' Package utilisateurs connectés
+package "Utilisateurs connectés" {
+  actor "Utilisateur connecté" as U #Pink;text:Pink
+  actor "Administrateur" as A #Red;text:Red
+  actor "Administrateur système" as AS #Purple;text:Purple
+  actor "Modérateur" as M #Orange;text:Orange
+}
+' Utilisateurs non connectés
+actor "Visiteur" as V #Green;text:Green
+
+package "Système" {
+    usecase "Homepage" as UC1 #LightGreen;text:Black
+    usecase "Login" as UC2 #LightGreen;text:Black
+    usecase "Register" as UC3 #LightGreen;text:Black
+    usecase "Logout" as UC4 #LightGreen;text:Black
+    usecase "Characters" as UC5 #LightGreen;text:Black
+    usecase "Light cones" as UC6 #LightGreen;text:Black
+    usecase "Materials" as UC7 #LightGreen;text:Black
+    usecase "Relics" as UC8 #LightGreen;text:Black
+    
+    usecase "Profile" as UC9 #LightPink;text:Black
+    usecase "Ajout commentaire" as UC10 #LightPink;text:Black
+    usecase "Modification commentaire" as UC11 #LightPink;text:Black
+    usecase "Suppression commentaire" as UC12 #LightPink;text:Black
+    usecase "Ajout recommandation" as UC13 #LightPink;text:Black
+    usecase "Modification recommandation" as UC14 #LightPink;text:Black
+    usecase "Suppression recommandation" as UC15 #LightPink;text:Black
+
+    usecase "Approuver recommandation" as UC16 #Orange;text:Black
+
+    usecase "Dashboard" as UC17 #OrangeRed;text:Black
+    usecase "Ajout personnage" as UC18 #OrangeRed;text:Black
+    usecase "Modification personnage" as UC19 #OrangeRed;text:Black
+    usecase "Suppression personnage" as UC20 #OrangeRed;text:Black
+    usecase "Ajout cône de lumière" as UC21 #OrangeRed;text:Black
+    usecase "Modification cône de lumière" as UC22 #OrangeRed;text:Black
+    usecase "Suppression cône de lumière" as UC23 #OrangeRed;text:Black
+    usecase "Ajout matériel" as UC24 #OrangeRed;text:Black
+    usecase "Modification matériel" as UC25 #OrangeRed;text:Black
+    usecase "Suppression matériel" as UC26 #OrangeRed;text:Black
+    usecase "Ajout artefact" as UC27 #OrangeRed;text:Black
+    usecase "Modification artefact" as UC28 #OrangeRed;text:Black
+    usecase "Suppression artefact" as UC29 #OrangeRed;text:Black
+
+    usecase "Gestion des utilisateurs" as UC30 #MediumPurple;text:Black
+}
+
+' Relations entre les acteurs et les cas d'utilisation
+' Visiteur
+V --> UC1
+V --> UC2
+V --> UC3
+V --> UC5
+V --> UC6
+V --> UC7
+V --> UC8
+
+' Utilisateur connecté
+U --> UC4
+U --> UC9
+U --> UC10
+U --> UC11
+U --> UC12
+U --> UC13
+U --> UC14
+U --> UC15
+
+' Moderateur
+M --> UC12
+M --> UC15
+M --> UC16
+M --> UC17
+
+' Administrateur
+A --> UC17
+A --> UC18
+A --> UC19
+A --> UC20
+A --> UC21
+A --> UC22
+A --> UC23
+A --> UC24
+A --> UC25
+A --> UC26
+A --> UC27
+A --> UC28
+A --> UC29
+
+' Administrateur système
+AS --> UC30
+
+' Relations
+UC9 ..> UC2 : include
+UC10 ..> UC2 : include
+UC11 ..> UC2 : include
+UC12 ..> UC2 : include
+UC13 ..> UC2 : include
+UC14 ..> UC2 : include
+UC15 ..> UC2 : include
+UC16 ..> UC2 : include
+UC17 ..> UC2 : include
+UC18 ..> UC2 : include
+UC19 ..> UC2 : include
+UC20 ..> UC2 : include
+UC21 ..> UC2 : include
+UC22 ..> UC2 : include
+UC23 ..> UC2 : include
+UC24 ..> UC2 : include
+UC25 ..> UC2 : include
+UC26 ..> UC2 : include
+UC27 ..> UC2 : include
+UC28 ..> UC2 : include
+UC29 ..> UC2 : include
+UC30 ..> UC2 : include
+
+' Héritage
+U <|-- V : herite
+A <|-- U : herite
+M <|-- U : herite
+AS <|-- M : herite
+AS <|-- A : herite
