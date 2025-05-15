@@ -1,0 +1,36 @@
+@startuml DiagrammeActiviteAdminUpdateLightCone
+title Diagramme d'activité pour la modification d'un cône de lumière par l'administrateur
+
+|Admin|
+start
+:Accès au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le role admin ?) then (non)
+  |Admin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Admin|
+  :Accès à la section de gestion des cônes de lumière;
+  :Sélectionner un cône de lumière à modifier;
+  |Serveur|
+  :Vérification du cône de lumière à modifier;
+  if () is (si n'existe pas) then
+    |Admin|
+    #red:**Message d'erreur**;
+    stop
+  else (si existe)
+    |Serveur|
+    :Renvoi du cône de lumière à modifier;
+    |Admin|
+    :Affichage du formulaire de modification;
+    repeat
+    :Remplir le formulaire de modification du cône de lumière;
+    |Serveur|
+    :Vérification des données du formulaire;
+    repeat while (Données valides?) is (non) not (oui)
+      |Admin|
+      :Validation des données;
+      stop
+    endif
+@enduml

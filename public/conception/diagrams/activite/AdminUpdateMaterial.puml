@@ -1,0 +1,36 @@
+@startuml DiagrammeActiviteAdminUpdateMaterial
+title Diagramme d'activité pour la modification d'un matériel par un administrateur
+
+|Admin|
+start
+:Accès au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le role admin ?) then (non)
+  |Admin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Admin|
+  :Accès à la section de gestion du matériel;
+  :Sélectionner le matériel à modifier;
+  |Serveur|
+  :Vérification du matériel à modifier;
+  if () is (si n'existe pas) then
+    |Admin|
+    #red:**Message d'erreur**;
+    stop
+  else (si existe)
+    |Serveur|
+    :Renvoi du matériel à modifier;
+    |Admin|
+    :Affichage du formulaire de modification;
+    repeat
+    :Remplir le formulaire de modification du matériel;
+    |Serveur|
+    :Vérification des données du formulaire;
+    repeat while (Données valides?) is (non) not (oui)
+      |Admin|
+      :Validation des données;
+      stop
+    endif
+@enduml

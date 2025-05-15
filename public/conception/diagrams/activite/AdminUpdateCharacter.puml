@@ -1,0 +1,36 @@
+@startuml DiagrammeActiviteAdminUpdateCharacter
+title Modification d'un personnage par l'administrateur
+
+|Admin|
+start
+:Accès au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le role admin ?) then (non)
+  |Admin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Admin|
+  :Accès à la section de gestion des personnages;
+  :Sélectionner le personnage à modifier;
+  |Serveur|
+  :Vérification du personnage à modifier;
+  if () is (si n'existe pas) then
+    |Admin|
+    #red:**Message d'erreur**;
+    stop
+  else (si existe)
+    |Serveur|
+    :Renvoi du personnage à modifier;
+    |Admin|
+    :Affichage du formulaire de modification;
+    repeat
+    :Remplir le formulaire de modification du personnage;
+    |Serveur|
+  :Vérification des données du formulaire;
+  repeat while (Données valides?) is (non) not (oui)
+    |Admin|
+    :Validation des données;
+    stop
+  endif
+@enduml

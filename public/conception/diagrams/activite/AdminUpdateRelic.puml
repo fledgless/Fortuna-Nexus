@@ -1,0 +1,36 @@
+@startuml DiagrammeActiviteAdminUpdateRelic
+title Diagramme d'activité pour la modification d'un artefact par un administrateur
+
+|Admin|
+start
+:Accès au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le role admin ?) then (non)
+  |Admin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Admin|
+  :Accès à la section de gestion des artefacts;
+  :Sélectionner l'artefact à modifier;
+  |Serveur|
+  :Vérification de l'artefact à modifier;
+  if () is (si n'existe pas) then
+    |Admin|
+    #red:**Message d'erreur**;
+    stop
+  else (si existe)
+    |Serveur|
+    :Renvoi de l'artefact à modifier;
+    |Admin|
+    :Affichage du formulaire de modification;
+    repeat
+    :Remplir le formulaire de modification de l'artefact;
+    |Serveur|
+    :Vérification des données du formulaire;
+    repeat while (Données valides?) is (non) not (oui)
+      |Admin|
+      :Validation des données;
+      stop
+    endif
+@enduml
