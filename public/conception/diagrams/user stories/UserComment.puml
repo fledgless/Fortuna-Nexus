@@ -7,24 +7,32 @@ skinparam usecase {
     BorderColor Black
 }
 
-actor "Utilisateur connecté" as M #Pink;text:Pink
+actor "Utilisateur connecté" as U #Pink;text:Pink
 
-usecase "Commentaire" as C #LightGray;text:Black
+package "Gestion des commentaires" {
+    usecase "Ajouter commentaire" as Ac #LightGray;text:Black
+    usecase "Modifier commentaire" as Mc #LightGray;text:Black
+    usecase "Supprimer commentaire" as SuC #LightGray;text:Black
+    usecase "Signaler commentaire" as SiC #LightGray;text:Black
+}
 
 ' Relations entre acteurs et cas d'utilisation
-U --> C
+U --> Ac
+U --> Mc
+U --> SuC
+U --> SiC
 
 ' Description des cas d'utilisation
-note right of C
+note right of Ac
     En tant qu'utilisateur connecté, je veux pouvoir laisser un commentaire sur la page d'un personnage.
 end note
-note right of C
+note right of SiC
     En tant qu'utilisateur connecté, je veux pouvoir signaler un commentaire inapproprié.
 end note
-note right of C
+note right of SuC
     En tant qu'utilisateur connecté, je veux pouvoir supprimer mon commentaire.
 end note
-note right of C
+note right of Mc
     En tant qu'utilisateur connecté, je veux pouvoir modifier mon commentaire.
 end note
 

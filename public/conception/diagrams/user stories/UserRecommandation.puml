@@ -8,20 +8,25 @@ skinparam usecase {
 }
 
 actor "Utilisateur connecté" as U #Pink;text:Pink
-
-usecase "Recommandation" as R #LightGray;text:Black
+package "Gestion des recommandations" {
+    usecase "Ajouter recommandation" as Ar #LightGray;text:Black
+    usecase "Modifier recommandation" as Mr #LightGray;text:Black
+    usecase "Supprimer recommandation" as Sr #LightGray;text:Black
+}
 
 ' Relations entre acteurs et cas d'utilisation
-U --> R
+U --> Ar
+U --> Mr
+U --> Sr
 
 ' Description des cas d'utilisation
-note right of R
+note right of Ar
     En tant qu'utilisateur connecté, je veux pouvoir laisser une recommandation sur la page d'un personnage.
 end note
-note right of R
+note right of Sr
     En tant qu'utilisateur connecté, je veux pouvoir supprimer ma recommandation.
 end note
-note right of R
+note right of Mr
     En tant qu'utilisateur connecté, je veux pouvoir modifier ma recommandation.
 end note
 

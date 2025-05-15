@@ -8,20 +8,25 @@ skinparam usecase {
 }
 
 actor "Utilisateur connecté" as U #LightGreen;text:LightGreen
-
-usecase "Profil" as P #LightGray;text:Black
+package "Gestion du profil" {
+    usecase "Consulter profil" as Cp #LightGray;text:Black
+    usecase "Modifier profil" as Mp #LightGray;text:Black
+    usecase "Supprimer compte" as Scp #LightGray;text:Black
+}
 
 ' Relations entre acteurs et cas d'utilisation
-U --> P
+U --> Cp
+U --> Mp
+U --> Scp
 
 ' Description des cas d'utilisation
-note right of P
+note right of Cp
     En tant qu'utilisateur connecté, je peux consulter mon profil.
 end note
-note right of P
+note right of Mp
     En tant qu'utilisateur connecté, je peux modifier mon profil.
 end note
-note right of P
+note right of Scp
     En tant qu'utilisateur connecté, je peux supprimer mon compte.
 end note
 

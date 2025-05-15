@@ -1,0 +1,33 @@
+@startuml UserStoryAdminMaterial
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Administrateur" as A #Red;text:Red
+package "Gestion des matériaux" {
+    usecase "Ajouter matériel" as Am #LightGray;text:Black
+    usecase "Modifier matériel" as Mm #LightGray;text:Black
+    usecase "Supprimer matériel" as Sm #LightGray;text:Black
+}
+
+' Relations entre acteurs et cas d'utilisation
+A --> Am
+A --> Mm
+A --> Sm
+
+' Description des cas d'utilisation
+note right of Am
+    En tant qu'administrateur, je veux pouvoir ajouter un matériel.
+end note
+note right of Mm
+    En tant qu'administrateur, je veux pouvoir modifier un matériel.
+end note
+note right of Sm
+    En tant qu'administrateur, je veux pouvoir supprimer un matériel.
+end note
+
+@enduml

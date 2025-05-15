@@ -9,16 +9,20 @@ skinparam usecase {
 
 actor "Modérateur" as M #Orange;text:Orange
 
-usecase "Recommendation" as R #LightGray;text:Black
+package "Gestion des recommandations" {
+    usecase "Valider recommandation" as Vr #LightGray;text:Black
+    usecase "Rejeter recommandation" as Rr #LightGray;text:Black
+}
 
 ' Relations entre acteurs et cas d'utilisation
-M --> R
+M --> Vr
+M --> Rr
 
 ' Description des cas d'utilisation
-note right of R
+note right of Vr
     En tant que modérateur, je veux pouvoir valider les recommandations d'un utilisateur.
 end note
-note right of R
+note right of Rr
     En tant que modérateur, je veux pouvoir rejeter les recommandations d'un utilisateur.
 end note
 
