@@ -17,7 +17,6 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-.env
 .env.test
 .env.dev
 node_modules

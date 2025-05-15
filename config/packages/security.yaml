@@ -23,6 +23,16 @@ security:
             logout:
                 path: app_logout
                 target: app_home
+            two_factor:
+                # The route name you have used in the routes.yaml
+                # https://symfony.com/doc/current/security/two-factor-authentication.html#two-factor-authentication
+                auth_form_path: 2fa_login    
+                check_path: 2fa_login_check
+                trusted_parameter_name: _trusted      # Name of the parameter for the trusted device option 
+            remember_me:
+                secret: '%kernel.secret%' # Uses the APP_SECRET from .env.local
+                lifetime: 5184000         # Lifetime of the "remember me" cookie in seconds (60 days)
+                path: '/'                 # Path for which the cookie is valid
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -33,9 +43,15 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        # Dashboard route, only accessible to admin users
         - { path: ^/fledgless, roles: ROLE_ADMIN }
+        # Routes accessible to all authenticated users
         - { path: ^/profile, roles: ROLE_USER }
-
+        # This makes the logout route accessible during two-factor authentication. Allows the user to
+        # cancel two-factor authentication, if they need to.
+        - { path: ^/logout, role: PUBLIC_ACCESS }
+        # This ensures that the form can only be accessed when two-factor authentication is in progress.
+        - { path: ^/2fa, role: IS_AUTHENTICATED_2FA_IN_PROGRESS }
 when@test:
     security:
         password_hashers:

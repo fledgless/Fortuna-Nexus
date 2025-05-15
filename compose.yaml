@@ -6,7 +6,7 @@ services:
     volumes:
       - database:/var/lib/mysql
     env_file:
-      - .env
+      - .env.local
     ports:
       - 3308:3306
 
@@ -19,6 +19,12 @@ services:
       - 8082:80
     environment:
       PMA_HOST: database
+
+  mailer:
+    image: axllent/mailpit
+    ports:
+      - "1030:1025"  # SMTP
+      - "8030:8025"  # Web UI (http://localhost:8025)
 
 volumes:
   database:

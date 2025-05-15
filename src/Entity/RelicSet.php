@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RelicSetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -82,6 +84,17 @@ class RelicSet
 
     #[ORM\Column]
     private ?bool $released = null;
+
+    /**
+     * @var Collection<int, RecommendedRelicSet>
+     */
+    #[ORM\ManyToMany(targetEntity: RecommendedRelicSet::class, mappedBy: 'relicSets')]
+    private Collection $recommendedCharacters;
+
+    public function __construct()
+    {
+        $this->recommendedCharacters = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -360,6 +373,33 @@ class RelicSet
     public function setReleased(bool $released): static
     {
         $this->released = $released;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RecommendedRelicSet>
+     */
+    public function getRecommendedCharacters(): Collection
+    {
+        return $this->recommendedCharacters;
+    }
+
+    public function addRecommendedCharacter(RecommendedRelicSet $recommendedCharacter): static
+    {
+        if (!$this->recommendedCharacters->contains($recommendedCharacter)) {
+            $this->recommendedCharacters->add($recommendedCharacter);
+            $recommendedCharacter->addRelicSet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecommendedCharacter(RecommendedRelicSet $recommendedCharacter): static
+    {
+        if ($this->recommendedCharacters->removeElement($recommendedCharacter)) {
+            $recommendedCharacter->removeRelicSet($this);
+        }
 
         return $this;
     }
