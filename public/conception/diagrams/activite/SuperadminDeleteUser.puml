@@ -1,0 +1,34 @@
+@startuml DiagrammeActiviteSuperadminDeleteUser
+title Suppression d'un utilisateur par le super administrateur
+
+|SuperAdmin|
+start
+:Accéder au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le rôle super admin ?) then (non)
+  |SuperAdmin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |SuperAdmin|
+  :Accéder à la section de gestion des utilisateurs;
+  :Sélectionner l'utilisateur à supprimer;
+  |Serveur|
+  :Vérification de l'utilisateur à supprimer;
+  if (Utilisateur existe ?) then (non)
+    |SuperAdmin|
+    #red: **Message d'erreur**;
+    stop
+  else (oui)
+    |Serveur|
+    :Renvoi de l'utilisateur à supprimer;
+    |SuperAdmin|
+    :Confirmer la suppression de l'utilisateur;
+    |Serveur|
+    :Suppression de l'utilisateur de la base de données;
+    |SuperAdmin|
+    :Afficher un message de succès;
+    stop
+  endif
+endif
+@enduml

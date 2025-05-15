@@ -1,0 +1,26 @@
+@startuml DiagrammeActiviteSuperadminAddUser
+title Ajout d'un utilisateur par le super administrateur
+
+|SuperAdmin|
+start
+:Accéder au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le rôle super admin ?) then (non)
+  |SuperAdmin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |SuperAdmin|
+  :Accéder à la section de gestion des utilisateurs;
+  :Ajouter un nouvel utilisateur;
+  repeat
+  :Remplir le formulaire d'ajout d'utilisateur;
+  |Serveur|
+  :Vérification des données du formulaire;
+  repeat while (Données valides?) is (non) not (oui)
+    |SuperAdmin|
+    :Validation des données;
+    stop
+  endif
+endif
+@enduml
