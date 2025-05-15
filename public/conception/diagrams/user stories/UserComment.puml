@@ -1,0 +1,31 @@
+@startuml UserStoryUserComment
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Utilisateur connecté" as M #Pink;text:Pink
+
+usecase "Commentaire" as C #LightGray;text:Black
+
+' Relations entre acteurs et cas d'utilisation
+U --> C
+
+' Description des cas d'utilisation
+note right of C
+    En tant qu'utilisateur connecté, je veux pouvoir laisser un commentaire sur la page d'un personnage.
+end note
+note right of C
+    En tant qu'utilisateur connecté, je veux pouvoir signaler un commentaire inapproprié.
+end note
+note right of C
+    En tant qu'utilisateur connecté, je veux pouvoir supprimer mon commentaire.
+end note
+note right of C
+    En tant qu'utilisateur connecté, je veux pouvoir modifier mon commentaire.
+end note
+
+@enduml

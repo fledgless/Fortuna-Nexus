@@ -1,0 +1,22 @@
+@startuml UserStoryModComment
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Modérateur" as M #Orange;text:Orange
+
+usecase "Commentaire" as C #LightGray;text:Black
+
+' Relations entre acteurs et cas d'utilisation
+M --> C
+
+' Description des cas d'utilisation
+note right of C
+    En tant que modérateur, je veux pouvoir supprimer un commentaire d'un utilisateur.
+end note
+
+@enduml

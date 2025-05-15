@@ -1,0 +1,28 @@
+@startuml UserStory=UserRecommandation
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Utilisateur connecté" as U #Pink;text:Pink
+
+usecase "Recommandation" as R #LightGray;text:Black
+
+' Relations entre acteurs et cas d'utilisation
+U --> R
+
+' Description des cas d'utilisation
+note right of R
+    En tant qu'utilisateur connecté, je veux pouvoir laisser une recommandation sur la page d'un personnage.
+end note
+note right of R
+    En tant qu'utilisateur connecté, je veux pouvoir supprimer ma recommandation.
+end note
+note right of R
+    En tant qu'utilisateur connecté, je veux pouvoir modifier ma recommandation.
+end note
+
+@enduml

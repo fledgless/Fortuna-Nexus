@@ -1,0 +1,22 @@
+@startuml UserStoryUserLogin
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Utilisateur" as U #LightGreen;text:LightGreen
+
+usecase "Connexion" as C #LightGray;text:Black
+
+' Relations entre acteurs et cas d'utilisation
+U --> C
+
+' Description des cas d'utilisation
+note right of C
+    En tant qu'utilisateur non connecté, je peux me connecter à mon compte déjà existant.
+end note
+
+@enduml

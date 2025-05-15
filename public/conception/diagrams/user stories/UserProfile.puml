@@ -1,0 +1,28 @@
+@startuml UserStoryUserProfile
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Utilisateur connecté" as U #LightGreen;text:LightGreen
+
+usecase "Profil" as P #LightGray;text:Black
+
+' Relations entre acteurs et cas d'utilisation
+U --> P
+
+' Description des cas d'utilisation
+note right of P
+    En tant qu'utilisateur connecté, je peux consulter mon profil.
+end note
+note right of P
+    En tant qu'utilisateur connecté, je peux modifier mon profil.
+end note
+note right of P
+    En tant qu'utilisateur connecté, je peux supprimer mon compte.
+end note
+
+@enduml
