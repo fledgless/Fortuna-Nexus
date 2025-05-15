@@ -1,0 +1,34 @@
+@startuml Connexion
+title Connexion d'un utilisateur
+
+|Utilisateur|
+start
+:Se rendre sur la page de connexion;
+:Entrer son adresse e-mail;
+:Entrer son mot de passe;
+:Cliquer sur le bouton de connexion;
+
+|Serveur|
+if (Adresse e-mail et mot de passe valides?) then (non)
+  |Utilisateur|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Serveur|
+  :Envoi du code 2FA;
+    |Utilisateur|
+    :Entrer le code 2FA;
+    |Serveur|
+    if (Code 2FA valide?) then (non)
+      |Utilisateur|
+      #red: **Message d'erreur**;
+      stop
+    else (oui)
+      |Utilisateur|
+      :Authentification réussie;
+      :Redirection vers le dashboard;
+      end
+    endif
+endif
+
+@enduml

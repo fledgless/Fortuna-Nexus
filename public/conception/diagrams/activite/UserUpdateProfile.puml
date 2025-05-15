@@ -1,0 +1,23 @@
+@startuml DiagrammeActiviteUserUpdateProfile
+title Mise à jour du profil utilisateur
+
+|Utilisateur|
+start
+:Se connecter à son compte;
+:Accéder à la page de profil;
+:Modifier les informations du profil;
+:Cliquer sur le bouton de mise à jour;
+|Serveur|
+:Vérifier si l'utilisateur est connecté;
+if (Utilisateur est connecté ?) then (non)
+  |Utilisateur|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Serveur|
+  :Mettre à jour les informations dans la base de données;
+  |Utilisateur|
+  :Afficher un message de succès;
+  stop
+endif
+@enduml
