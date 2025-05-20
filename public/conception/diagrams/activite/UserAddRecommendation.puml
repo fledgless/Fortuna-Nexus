@@ -1,0 +1,34 @@
+@startuml DiagrammeActiviteUserAddRecommendation
+title Ajout d'une recommandation par un utilisateur
+
+|Utilisateur|
+start
+:Se connecter à son compte;
+:Accéder à la page des personnages;
+:Choisir un personnage;
+:Accéder à la page du personnage;
+:Ajouter une recommandation;
+repeat
+:Remplir le formulaire de recommandation;
+|Serveur|
+:Vérifier si l'utilisateur est connecté;
+if (Utilisateur est connecté ?) then (non)
+  |Utilisateur|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Serveur|
+  :Vérifier le contenu de la recommandation;
+  if (Recommandation valide ?) then (non)
+    |Utilisateur|
+    #red: **Message d'erreur**;
+    stop
+  else (oui)
+    |Serveur|
+    :Enregistrer la recommandation dans la base de données;
+    |Utilisateur|
+    :Afficher un message de succès;
+    stop
+  endif
+endif
+@enduml

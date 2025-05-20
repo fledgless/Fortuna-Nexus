@@ -1,0 +1,32 @@
+@startuml DiagrammeActiviteUserDeleteRecommendation
+title Suppression d'une recommandation par un utilisateur
+
+|Utilisateur|
+start
+:Se connecter à son compte;
+:Accéder à la page de profil;
+:Accéder à la page des recommandations;
+:Choisir la recommandation à supprimer;
+:Confirmer la suppression;
+|Serveur|
+:Vérifier si l'utilisateur est connecté;
+if (Utilisateur est connecté ?) then (non)
+  |Utilisateur|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Serveur|
+  :Vérifier si l'utilisateur a le droit de supprimer la recommandation;
+  if (Droit de suppression valide ?) then (non)
+    |Utilisateur|
+    #red: **Message d'erreur**;
+    stop
+  else (oui)
+    |Serveur|
+    :Supprimer la recommandation de la base de données;
+    |Utilisateur|
+    :Afficher un message de succès;
+    stop
+  endif
+endif
+@enduml

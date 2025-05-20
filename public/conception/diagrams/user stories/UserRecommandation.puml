@@ -10,7 +10,6 @@ skinparam usecase {
 actor "Utilisateur connecté" as U #Pink;text:Pink
 package "Gestion des recommandations" {
     usecase "Ajouter recommandation" as Ar #LightGray;text:Black
-    usecase "Modifier recommandation" as Mr #LightGray;text:Black
     usecase "Supprimer recommandation" as Sr #LightGray;text:Black
 }
 
@@ -25,9 +24,6 @@ note right of Ar
 end note
 note right of Sr
     En tant qu'utilisateur connecté, je veux pouvoir supprimer ma recommandation.
-end note
-note right of Mr
-    En tant qu'utilisateur connecté, je veux pouvoir modifier ma recommandation.
 end note
 
 @enduml
