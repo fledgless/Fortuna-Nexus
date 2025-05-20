@@ -1,0 +1,36 @@
+@startuml DiagrammeActiviteSuperadminUpdateUser
+title Mise à jour des informations d'un utilisateur par un super administrateur
+
+|SuperAdmin|
+start
+:Accéder au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le rôle super admin ?) then (non)
+  |SuperAdmin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |SuperAdmin|
+  :Accéder à la section de gestion des utilisateurs;
+  :Sélectionner l'utilisateur à modifier;
+  |Serveur|
+  :Vérification de l'utilisateur à modifier;
+  if (Utilisateur existe ?) then (non)
+    |SuperAdmin|
+    #red: **Message d'erreur**;
+    stop
+  else (oui)
+    |Serveur|
+    :Renvoi de l'utilisateur à modifier;
+    |SuperAdmin|
+    :Affichage du formulaire de modification;
+    repeat
+    :Remplir le formulaire de modification de l'utilisateur;
+    |Serveur|
+    :Vérification des données du formulaire;
+    repeat while (Données valides?) is (non) not (oui)
+      |SuperAdmin|
+      :Validation des données;
+      stop
+    endif
+  endif

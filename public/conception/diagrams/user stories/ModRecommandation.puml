@@ -1,0 +1,29 @@
+@startuml UserStoryModRecommandation
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Modérateur" as M #Orange;text:Orange
+
+package "Gestion des recommandations" {
+    usecase "Valider recommandation" as Vr #LightGray;text:Black
+    usecase "Rejeter recommandation" as Rr #LightGray;text:Black
+}
+
+' Relations entre acteurs et cas d'utilisation
+M --> Vr
+M --> Rr
+
+' Description des cas d'utilisation
+note right of Vr
+    En tant que modérateur, je veux pouvoir valider les recommandations d'un utilisateur.
+end note
+note right of Rr
+    En tant que modérateur, je veux pouvoir rejeter les recommandations d'un utilisateur.
+end note
+
+@enduml

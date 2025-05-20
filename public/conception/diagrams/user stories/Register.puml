@@ -1,0 +1,22 @@
+@startuml UserStoryRegister
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Utilisateur" as U #LightGreen;text:LightGreen
+
+usecase "Inscription" as I #LightGray;text:Black
+
+' Relations entre acteurs et cas d'utilisation
+U --> I
+
+' Description des cas d'utilisation
+note right of I
+    En tant qu'utilisateur non connecté, je veux pouvoir créer un compte.
+end note
+
+@enduml

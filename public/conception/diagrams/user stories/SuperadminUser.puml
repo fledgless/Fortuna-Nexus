@@ -1,0 +1,44 @@
+@startuml UserStorySuperadminUser
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Superadmin" as S #Orange;text:Orange
+
+package "Gestion des utilisateurs" {
+    usecase "Ajouter utilisateur" as Au #LightGray;text:Black
+    usecase "Modifier utilisateur" as Mu #LightGray;text:Black
+    usecase "Supprimer utilisateur" as Su #LightGray;text:Black
+    usecase "Consulter utilisateur" as Cu #LightGray;text:Black
+    usecase "Consulter tous les utilisateurs" as Ctu #LightGray;text:Black
+}
+
+' Relations entre acteurs et cas d'utilisation
+S --> Au
+S --> Mu
+S --> Su
+S --> Cu
+S --> Ctu
+
+' Description des cas d'utilisation
+note right of Au
+    En temps que super administrateur, je peux ajouter un nouvel utilisateur.
+end note
+note right of Mu
+    En temps que super administrateur, je peux modifier un utilisateur existant.
+end note
+note right of Su
+    En temps que super administrateur, je peux supprimer un utilisateur existant.
+end note
+note right of Cu
+    En temps que super administrateur, je peux consulter les détails d'un utilisateur.
+end note
+note right of Ctu
+    En temps que super administrateur, je peux consulter la liste de tous les utilisateurs.
+end note
+
+@enduml

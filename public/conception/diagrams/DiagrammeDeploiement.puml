@@ -1,0 +1,29 @@
+@startuml DiagrammeDeploiement
+
+left to right direction
+
+node "Serveur" as s #Red/Orange{
+    component "Apache" as ap #LightGreen
+    component "PHP" as php #LightGreen
+    artifact "Symfony" as sy #LightGreen
+}
+
+node "Client" as c #LightGreen{
+    component "Navigateur" as n #LightBlue
+}
+
+node Messagerie as m #LightBlue{
+    component "Client Mail" as cm #LightBlue
+}
+
+node "Base de données" as db #Orange/White{
+    component "MySql" as mysql #LightBlue
+}
+
+c -- s : HTTP
+db -- s : TCP
+m -- s : SMTP
+ap <.. php
+php <.. sy
+
+@enduml

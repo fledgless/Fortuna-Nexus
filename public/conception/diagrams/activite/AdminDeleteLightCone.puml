@@ -1,0 +1,35 @@
+@startuml DiagrammeActiviteAdminDeleteLightCone
+title Diagramme d'activité pour la suppression d'un cône de lumière
+
+|Admin|
+start
+:Accès au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le role admin ?) then (non)
+  |Admin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Admin|
+  :Accès à la section de gestion des cônes de lumière;
+  :Sélectionner un cône de lumière à supprimer;
+  :Cliquer sur le bouton de suppression;
+  |Serveur|
+  :Vérification de la demande de suppression;
+  if () is (si erreur) then
+    |Admin|
+    #red: **Message d'erreur**;
+    stop
+  else (si valide)
+    |Serveur|
+    :Demande de confirmation;
+    |Admin|
+    :Confirmer la suppression du cône de lumière;
+    |Serveur|
+    :Suppression du cône de lumière de la base de données;
+    |Admin|
+    :Afficher un message de succès;
+    stop
+  endif
+  endif
+@enduml

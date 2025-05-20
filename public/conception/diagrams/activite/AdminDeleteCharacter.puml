@@ -1,0 +1,35 @@
+@startuml DiagrammeActiviteAdminDeleteCharacter
+title Diagramme d'activité pour la suppression d'un personnage par un administrateur
+
+|Admin|
+start
+:Accès au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le role admin ?) then (non)
+  |Admin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Admin|
+  :Accès à la section de gestion des personnages;
+  :Sélectionner le personnage à supprimer;
+  :Cliquer sur le bouton de suppression;
+  |Serveur|
+  :Vérification de la demande de suppression;
+  if () is (si erreur) then
+    |Admin|
+    #red: **Message d'erreur**;
+    stop
+  else (si valide)
+    |Serveur|
+    :Demande de confirmation;
+    |Admin|
+    :Confirmer la suppression du personnage;
+    |Serveur|
+    :Suppression du personnage de la base de données;
+    |Admin|
+    :Afficher un message de succès;
+    stop
+  endif
+  endif
+@enduml

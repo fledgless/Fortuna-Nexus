@@ -1,0 +1,33 @@
+@startuml UserStoryAdminCharacter
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Administrateur" as A #Red;text:Red
+package "Gestion des personnages" {
+    usecase "Ajouter personnage" as Ap #LightGray;text:Black
+    usecase "Modifier personnage" as Mp #LightGray;text:Black
+    usecase "Supprimer personnage" as Sp #LightGray;text:Black
+}
+
+' Relations entre acteurs et cas d'utilisation
+A --> Ap
+A --> Mp
+A --> Sp
+
+' Description des cas d'utilisation
+note right of Ap
+    En tant qu'administrateur, je veux pouvoir ajouter un personnage.
+end note
+note right of Mp
+    En tant qu'administrateur, je veux pouvoir modifier un personnage.
+end note
+note right of Sp
+    En tant qu'administrateur, je veux pouvoir supprimer un personnage.
+end note
+
+@enduml

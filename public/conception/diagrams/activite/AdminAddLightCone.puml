@@ -1,0 +1,25 @@
+@startuml DiagrammeActiviteAdminAddLightCone
+title Diagramme d'activité pour l'ajout d'un cône de lumière par l'administrateur
+
+|Admin|
+start
+:Accès au dashboard;
+|Serveur|
+if (Utilisateur est connecté et a le role admin ?) then (non)
+  |Admin|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Admin|
+  :Accès à la section de gestion des cônes de lumière;
+  :Ajouter un nouveau cône de lumière;
+  repeat
+  :Remplir le formulaire d'ajout de cône de lumière;
+  |Serveur|
+  :Vérification des données du formulaire;
+  repeat while (Données valides?) is (non) not (oui)
+    |Admin|
+    :Validation des données;
+    stop
+  endif
+@enduml

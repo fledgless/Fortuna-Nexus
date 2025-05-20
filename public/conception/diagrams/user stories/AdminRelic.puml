@@ -1,0 +1,33 @@
+@startuml UserStoryAdminRelic
+
+left to right direction
+skinparam actorFontStyle bold
+skinparam usecase {
+    BackgroundColor YellowGreen
+    BorderColor Black
+}
+
+actor "Administrateur" as A #Red;text:Red
+package "Gestion des artefacts" {
+    usecase "Ajouter artefact" as Aa #LightGray;text:Black
+    usecase "Modifier artefact" as Ma #LightGray;text:Black
+    usecase "Supprimer artefact" as Sa #LightGray;text:Black
+}
+
+' Relations entre acteurs et cas d'utilisation
+A --> Aa
+A --> Ma
+A --> Sa
+
+' Description des cas d'utilisation
+note right of Aa
+    En tant qu'administrateur, je veux pouvoir ajouter un artefact.
+end note
+note right of Ma
+    En tant qu'administrateur, je veux pouvoir modifier un artefact.
+end note
+note right of Sa
+    En tant qu'administrateur, je veux pouvoir supprimer un artefact.
+end note
+
+@enduml

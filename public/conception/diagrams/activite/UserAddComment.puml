@@ -1,0 +1,34 @@
+@startuml DiagrammeActiviteUserAddComment
+title Ajout d'un commentaire par un utilisateur
+
+|Utilisateur|
+start
+:Se connecter à son compte;
+:Accéder à la page des personnages;
+:Choisir un personnage;
+:Accéder à la page du personnage;
+:Ajouter un commentaire;
+repeat
+:Remplir le formulaire de commentaire;
+|Serveur|
+:Vérifier si l'utilisateur est connecté;
+if (Utilisateur est connecté ?) then (non)
+  |Utilisateur|
+  #red: **Message d'erreur**;
+  stop
+else (oui)
+  |Serveur|
+  :Vérifier le contenu du commentaire;
+  if (Commentaire valide ?) then (non)
+    |Utilisateur|
+    #red: **Message d'erreur**;
+    stop
+  else (oui)
+    |Serveur|
+    :Enregistrer le commentaire dans la base de données;
+    |Utilisateur|
+    :Afficher un message de succès;
+    stop
+  endif
+endif
+@enduml
