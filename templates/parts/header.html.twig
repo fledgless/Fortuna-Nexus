@@ -29,15 +29,23 @@
                     <p>Materials</p>
                 </a>
             </li>
+            {% if is_granted('ROLE_USER') %}
+                <li class="main-nav-link">
+                    <a class="main-nav-link-text" href="/logout">Logout</a>
+                </li>
+            {% else %}
+                <li class="main-nav-link">
+                    <a class="main-nav-link-text" href="/login">Login</a>
+                </li>
+                <li class="main-nav-link">
+                    <a class="main-nav-link-text" href="/register">Register</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="main-nav-link">
+                    <a class="main-nav-link-text" href="/fledgless">Admin</a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
-    {% if is_granted('ROLE_USER') %}
-        <a href="/logout">Log out</a>
-    {% else %}
-        <a href="/login">Log in</a>
-        <a href="/register">Register</a>
-    {% endif %}
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="/fledgless">Admin</a>
-    {% endif %}
 </header>

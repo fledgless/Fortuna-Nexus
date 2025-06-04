@@ -284,6 +284,23 @@ class Character
         return $this;
     }
 
+    public function getCharacterBuild(): ?CharacterBuild
+    {
+        return $this->characterBuild;
+    }
+    
+    public function setCharacterBuild(CharacterBuild $characterBuild): static
+    {
+        // set the owning side of the relation if necessary
+        if ($characterBuild->getCharacterName() !== $this) {
+            $characterBuild->setCharacterName($this);
+        }
+
+        $this->characterBuild = $characterBuild;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, CharacterMedia>
      */

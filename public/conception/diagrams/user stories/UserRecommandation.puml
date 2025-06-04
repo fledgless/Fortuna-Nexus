@@ -15,7 +15,6 @@ package "Gestion des recommandations" {
 
 ' Relations entre acteurs et cas d'utilisation
 U --> Ar
-U --> Mr
 U --> Sr
 
 ' Description des cas d'utilisation

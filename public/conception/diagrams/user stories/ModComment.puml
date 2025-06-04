@@ -12,7 +12,7 @@ actor "Modérateur" as M #Orange;text:Orange
 usecase "Supprimer commentaire" as Sc #LightGray;text:Black
 
 ' Relations entre acteurs et cas d'utilisation
-M --> C
+M --> Sc
 
 ' Description des cas d'utilisation
 note right of Sc
